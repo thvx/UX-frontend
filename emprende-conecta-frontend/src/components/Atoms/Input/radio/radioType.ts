@@ -1,6 +1,6 @@
 export type RadioItem = {
   name: string,
   text: string,
-  size: 'xs' | 'sm' | 'md' | 'lg',
+  size: 'radio-xs' | 'radio-sm' | 'radio-md' | 'radio-lg',
   marginRight: string
 };

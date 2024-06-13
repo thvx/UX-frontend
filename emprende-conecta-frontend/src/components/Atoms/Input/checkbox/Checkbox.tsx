@@ -1,17 +1,17 @@
 import React from 'react';
 
 type CheckBoxProps = {
-  checkboxType?: 'primary' | 'secondary' | 'accent' | 'success' | 'warning' | 'info' | 'error',
+  checkboxType?: 'checkbox-primary' | 'checkbox-secondary' | 'checkbox-accent' | 'checkbox-success' | 'checkbox-warning' | 'checkbox-info' | 'checkbox-error',
     checkedType?: 'defaultChecked' | 'checked',
     isDisabled?: boolean,
-    size: 'xs' | 'sm' | 'md' | 'lg'
+    size: 'checkbox-xs' | 'checkbox-sm' | 'checkbox-md' | 'checkbox-lg'
 };
 
-const Checkbox: React.FC<CheckBoxProps> = ({ checkboxType = 'success', checkedType = 'defaultChecked', isDisabled = false, size }) => {
+const Checkbox: React.FC<CheckBoxProps> = ({ checkboxType = 'checkbox-success', checkedType = 'defaultChecked', isDisabled = false, size }) => {
     const checkBoxProps = {
         [checkedType]: true,
         disabled: isDisabled,
-        className: `checkbox checkbox-${checkboxType} checkbox-${size}`
+        className: `checkbox ${checkboxType} ${size}`
       };
     
       return (

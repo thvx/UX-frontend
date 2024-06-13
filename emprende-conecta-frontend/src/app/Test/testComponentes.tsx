@@ -6,15 +6,15 @@ import RadioList from "../../components/Organism/RadioList/RadioList.tsx";
 
 const App: React.FC = () => {
   const radioItems: RadioItem[] = [
-    { name: 'option1', text: 'Option 1', size: 'md', marginRight: '10' },
-    { name: 'option2', text: 'Option 2', size: 'md', marginRight: '10' },
-    { name: 'option3', text: 'Option 3', size: 'md', marginRight: '10' }
+    { name: 'option1', text: 'Option 1', size: 'radio-lg', marginRight: 'mr-10' },
+    { name: 'option2', text: 'Option 2', size: 'radio-md', marginRight: '10' },
+    { name: 'option3', text: 'Option 3', size: 'radio-md', marginRight: '10' }
   ];
   
   return (
     <div className="app-container min-h-screen">
         <div className="flex flex-col items-center gap-6 p-6">
-          <Checkbox size="md" />
+          <Checkbox size="checkbox-sm" checkboxType="checkbox-error" />
           <FileInput />
           <RadioList items={radioItems} />
         </div>
