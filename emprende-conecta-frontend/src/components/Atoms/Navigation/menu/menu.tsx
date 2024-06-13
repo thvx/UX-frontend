@@ -13,7 +13,7 @@ type MenuProps = {
 const Menu: React.FC<MenuProps> = ({ items }) => {
     return(
         <>
-            <ul className="menu bg-custom-blue w-56 rounded-box">
+            <ul className="menu bg-custom-lightblue w-56 rounded-box">
                 {items.map((item, index) => (
                         index === 0 ? (
                             <li key={index}>
