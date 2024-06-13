@@ -28,6 +28,7 @@ export default {
           "custom-yellow": '#E0FF4F',
           "custom-lightblue": '#64889E',
           "custom-darkblue": '#187EBA',
+          "custom-lightblue": '#BDD6E8',
         },
       },
     ],
