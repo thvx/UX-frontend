@@ -3,6 +3,7 @@ import './App.css'
 import HomePage from '../src/app/Homepage/homepage'
 import Preregistro from '../src/app/Register/Preregistro/preregistro'
 import RegistroVendedor from '../src/app/Register/RegistroVendedor/registroVendedor'
+import RegistroComprador from '../src/app/Register/RegistroComprador.tsx/registroComprador'
 import Login from './components/Templates/Login/login'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Dashboard1 from './app/Dashboard/dashboard1'
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<HomePage/>} />
         <Route path="/preregistro" element={<Preregistro/>} />
         <Route path="/registro/vendedor" element={<RegistroVendedor/>} />
+        <Route path="/registro/comprador" element={<RegistroComprador/>} /> 
         <Route path="/login" element={<Login/>} />
         <Route path="/dashboard1" element={<Dashboard1/>}/>
         <Route path="/dashboard2" element={<Dashboard2/>}/>
