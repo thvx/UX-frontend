@@ -1,17 +1,27 @@
 import React from 'react';
 
+type CollapseItem = {
+    title: string;
+    content: string;
+}
 
-const Collapse: React.FC = () => {
+type CollapseProps = {
+    items: CollapseItem[];
+}
+
+const Collapse: React.FC<CollapseProps> = ({items}) => {
     return (
         <>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-200">
-                <div className="collapse-title text-xl font-medium">
-                    Focus me to see content
+            {items.map((item) => (
+                <div tabIndex={0} className="collapse bg-custom-yellow"> 
+                    <div className="collapse-title text-xl font-medium text-custom-blue">
+                        {item.title}
+                    </div>
+                    <div className="collapse-content"> 
+                        <p className='text-custom-blue'>{item.content}</p>
+                    </div>
                 </div>
-                <div className="collapse-content">
-                    <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-                </div>
-            </div>
+            ))}
         </>
     );
 }
