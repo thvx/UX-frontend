@@ -10,7 +10,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app-container min-h-screen custom-darkblue">
+    <div className="app-container min-h-screen bg-custom-blue">
         <div className="flex flex-col items-center gap-6 p-6">
           <Button text="Half Width Button" width="half" />
           <Button text="Quarter Width Button" width="quarter" />
