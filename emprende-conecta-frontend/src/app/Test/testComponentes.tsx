@@ -3,6 +3,8 @@ import Link from '../../components/Atoms/Navigation/link/link';
 import Menu from '../../components/Atoms/Navigation/menu/menu';
 import Pagination from '../../components/Atoms/Navigation/pagination/pagination';
 import NavBar from '../../components/Atoms/Navigation/navbar/navbar';
+import Steps from '../../components/Atoms/Navigation/steps/steps';
+import Tab from '../../components/Atoms/Navigation/tab/tab';
 
 const breadcrumbData = [
   {
@@ -39,6 +41,8 @@ const menuData = [
   },
 ]
 
+const stepsText = ['Selección de medio de pago', 'Visualización de monto', 'Confirmación de pago', 'Entrega de voucher']
+
 function App() {
   
   return (
@@ -48,6 +52,8 @@ function App() {
       <Menu items={menuData} />
       <Pagination numPages={5} actualPage={1} />
       <NavBar/>
+      <Steps numPages={4} actualPage={2} stepsText={stepsText} />
+      <Tab numTabs={5} actualTab={3} />
     </>
   )
 }
