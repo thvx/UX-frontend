@@ -1,22 +1,28 @@
-
 import React from "react";
-import arrow_left from "../../../assets/imagenes/arrowleft.png"
-import logo_emprende from "../../../assets/imagenes/Logo-Emprende-Conecta.png"
+import arrow_left from "../../../assets/imagenes/arrowleft.png";
+import logo_emprende from "../../../assets/imagenes/Logo-Emprende-Conecta.png";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const NavBar: React.FC = () => {
+    const navigate = useNavigate();
     return (
         <div className="navbar bg-custom-blue">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                    <div
+                        tabIndex={0}
+                        role="button"
+                        className="btn btn-ghost btn-circle"
+                        onClick={() => navigate(-1)}
+                    >
                         <img className="h-8 w-8" src={arrow_left} />
                     </div>
                 </div>
             </div>
             <div className="navbar-center text-blue-200">
                 <Link to="/">
-                <a className="btn btn-ghost text-xl">Emprende&Conecta</a>
+                    <a className="btn btn-ghost text-xl">Emprende&Conecta</a>
                 </Link>
             </div>
             <div className="navbar-end">
@@ -25,11 +31,10 @@ const NavBar: React.FC = () => {
                 </button>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default NavBar
-
+export default NavBar;
 
 /*
 import Logo from '../../Atoms/Media/logo/logo';
