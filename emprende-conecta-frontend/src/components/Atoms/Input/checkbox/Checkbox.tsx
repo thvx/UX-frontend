@@ -7,7 +7,7 @@ type CheckBoxProps = {
     size: 'checkbox-xs' | 'checkbox-sm' | 'checkbox-md' | 'checkbox-lg'
 };
 
-const Checkbox: React.FC<CheckBoxProps> = ({ checkboxType = 'checkbox-success', checkedType = 'defaultChecked', isDisabled = false, size }) => {
+const Checkbox: React.FC<CheckBoxProps> = ({ checkboxType = '', checkedType = 'defaultChecked', isDisabled = false, size }) => {
     const checkBoxProps = {
         [checkedType]: true,
         disabled: isDisabled,
