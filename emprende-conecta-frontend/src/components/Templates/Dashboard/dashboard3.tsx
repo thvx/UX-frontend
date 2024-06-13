@@ -3,6 +3,7 @@ import Button from "../../Atoms/Actions/button/button";
 import zapatillaJordan from "../../../assets/imagenes/zapatilla_jordan.jpg"
 import zapatillaRoja from "../../../assets/imagenes/zapatilla_jordan.jpg"
 import logoCordillera from "../../../assets/imagenes/Logo-cordillera-blanco.png"
+import banner from "../../../assets/imagenes/vendedor.jpg"
 
 const Dashboard3 = () => {
     const menuItems1 = [
@@ -77,9 +78,12 @@ const Dashboard3 = () => {
                 <Menu items={menuItems1} />
             </div>
             <div className="flex flex-col justify-center items-center flex-1 bg-custom-blue">
-                <div className="w-1/3 mb-10">
-                    <img className="w-full" src={logoCordillera} />
+            <div className="relative mb-36">
+                <img src={banner} alt="Imagen de fondo" className="w-full max-w-md rounded-lg shadow-lg"/>
+                <div className="absolute inset-0 flex items-end justify-center">
+                <img src={logoCordillera} alt="Imagen superpuesta" className="w-32 h-32 rounded-full border-4 border-white shadow-lg"/>
                 </div>
+            </div>
                 <div className="flex w-full justify-center content-center">
                     <div>
 
