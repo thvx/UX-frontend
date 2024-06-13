@@ -3,6 +3,7 @@ import FileInput from "../../components/Atoms/Input/file/FileInput.tsx";
 // import radio from "../../components/Atoms/Input/radio/Radio.tsx";
 import { RadioItem } from "../../components/Atoms/Input/radio/radioType.ts";
 import RadioList from "../../components/Organism/RadioList/RadioList.tsx";
+import Select from "../../components/Atoms/Input/select/Select.tsx";
 
 const App: React.FC = () => {
   const radioItems: RadioItem[] = [
@@ -17,6 +18,7 @@ const App: React.FC = () => {
           <Checkbox size="checkbox-sm" checkboxType="checkbox-error" />
           <FileInput />
           <RadioList items={radioItems} />
+          <Select size="select-xs" items={['Seleccionar elemento', 'zzzz', 'dsdsad']} />
         </div>
     </div>
   )
