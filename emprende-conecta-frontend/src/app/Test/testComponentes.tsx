@@ -18,10 +18,12 @@ const accordionData = [
 ];
 
 const cardProductData = {
+  image: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg",
   title: "Shoes",
-  content: "If a dog chews shoes whose shoes does he choose?",
-  btn_width: "auto" as const,
-  btn_content: "Buy Now",
+  description: "If a dog chews shoes whose shoes does he choose?",
+  badges: ["badge1", "badge2"],
+  isNew: true,
+  extraClasses: "Yes"
 };
 
 const cardLoginData = {
@@ -56,6 +58,42 @@ const tableData = [
   },
 ];
 
+const carouselData = [
+  {
+    image: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg",
+    title: "Cone party",
+    description: "Do you like ice-cream?",
+    badges: ["badge1", "badge2"],
+    isNew: true,
+    extraClasses: "Yes"
+  },
+  {
+    image: "https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg",
+    title: "Pink grapes",
+    description: "Enjoy the grapes",
+    badges: ["badge1", "badge2"],
+    isNew: true,
+    extraClasses: "Yes"
+  },
+  {
+    image: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg",
+    title: "Cone party",
+    description: "Do you like ice-cream?",
+    badges: ["badge1", "badge2"],
+    isNew: true,
+    extraClasses: "Yes"
+  },
+  {
+    image: "https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg",
+    title: "Pink grapes",
+    description: "Enjoy the grapes",
+    badges: ["badge1", "badge2"],
+    isNew: true,
+    extraClasses: "Yes"
+  },
+
+]
+
 
 
 function App() {
@@ -71,7 +109,7 @@ function App() {
       </div>
 
       <div className="flex flex-col items-center gap-6 p-6">
-      <CardProductos title={cardProductData.title} content={cardProductData.content} btn_width={cardProductData.btn_width} btn_content={cardProductData.btn_content}/>
+      <CardProductos image={cardProductData.image} title={cardProductData.title} description={cardProductData.description} isNew={cardProductData.isNew} badges={cardProductData.badges} extraClasses={cardProductData.extraClasses}/>
       </div>
 
       <div className="flex flex-col items-center gap-6 p-6">
@@ -79,7 +117,7 @@ function App() {
       </div>
 
       <div>
-      <Carousel />
+      <Carousel items={carouselData}/>
       </div>
 
       <div>
