@@ -2,7 +2,7 @@ import Button from "../../components/Atoms/Actions/button/button";
 import Dropdown from "../../components/Atoms/Actions/dropdown/dropdown";
 import Modal from "../../components/Organism/modal/modal";
 import Swap from "../../components/Atoms/Actions/swap/swap";
-import Checkbox from "../../components/Atoms/Input/checkbox/Checkbox.tsx";
+import Checkbox from "../../components/Atoms/Input/checkbox/checkbox.tsx"
 import FileInput from "../../components/Atoms/Input/file/FileInput.tsx";
 import { RadioItem } from "../../components/Atoms/Input/radio/radioType.ts";
 import RadioList from "../../components/Organism/RadioList/RadioList.tsx";
@@ -18,9 +18,11 @@ import BreadCrumbs from '../../components/Atoms/Navigation/breadcumbs/breadcumbs
 import Link from '../../components/Atoms/Navigation/link/link';
 import Menu from '../../components/Atoms/Navigation/menu/menu';
 import Pagination from '../../components/Atoms/Navigation/pagination/pagination';
-import NavBar from '../../components/Atoms/Navigation/navbar/navbar';
+import NavBar from "../../components/Organism/navbar/navbar.tsx";
+import NavBarUser from '../../components/Organism/navbar/navbar2.tsx';
 import Steps from '../../components/Atoms/Navigation/steps/steps';
 import Tab from '../../components/Atoms/Navigation/tab/tab';
+import { ChangeEvent } from "react";
 
 const App: React.FC = () => {
   const radioItems: RadioItem[] = [
@@ -72,7 +74,7 @@ const App: React.FC = () => {
   const stepsText = ['Selección de medio de pago', 'Visualización de monto', 'Confirmación de pago', 'Entrega de voucher']
 
   return (
-    <div className="app-container min-h-screen custom-darkblue">
+    <div className="app-container min-h-screen bg-custom-blue">
         <div className="flex flex-col items-center gap-6 p-6">
           <Button text="Half Width Button" width="half" />
           <Button text="Quarter Width Button" width="quarter" />
@@ -114,7 +116,10 @@ const App: React.FC = () => {
           <Link title={linkText} />
           <Menu items={menuData} />
           <Pagination numPages={5} actualPage={1} />
-          <NavBar/>
+          <NavBar searchValue={"Buscar en Emprende&Conecta"} onSearchChange={function (e: ChangeEvent<HTMLInputElement>): void {
+          throw new Error("Function not implemented.");
+        } }/>
+          <NavBarUser/>
           <Steps numPages={4} actualPage={2} stepsText={stepsText} />
           <Tab numTabs={5} actualTab={3} />
         </div>

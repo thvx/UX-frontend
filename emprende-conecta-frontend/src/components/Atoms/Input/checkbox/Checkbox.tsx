@@ -13,7 +13,7 @@ const Checkbox: React.FC<CheckBoxProps> = ({ checkboxType = '', checkedType = 'd
         disabled: isDisabled,
         className: `checkbox ${checkboxType} ${size}`
       };
-    
+
       return (
         <input type="checkbox" {...checkBoxProps} />
       );
