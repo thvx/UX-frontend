@@ -1,5 +1,4 @@
 import Button from "../../components/Atoms/Actions/button/button";
-import Dropdown from "../../components/Atoms/Actions/dropdown/dropdown";
 import Modal from "../../components/Organism/modal/modal";
 import Swap from "../../components/Atoms/Actions/swap/swap";
 import Checkbox from "../../components/Atoms/Input/checkbox/Checkbox.tsx"
@@ -187,11 +186,7 @@ const App: React.FC = () => {
                 rightButtonText="Confirm" 
             />
       </div>
-
-      <div className="flex flex-col items-center space-y-4">
-          <Dropdown buttonText="Inicia Sesión" items={['Inicia Sesión', 'Regístrate']} />
-      </div>
-
+      
       <Swap />
 
       <div className="flex flex-col items-center gap-6 p-6">
