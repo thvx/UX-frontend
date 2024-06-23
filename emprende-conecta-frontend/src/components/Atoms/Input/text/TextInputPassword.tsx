@@ -13,7 +13,7 @@ type TextInputPasswordProps = {
 
 const TextInputPassword: React.FC<TextInputPasswordProps> = ({ inputType = '', isDisabled = false, size, placeholder,  required, value, name, onChange }) => {
     const TextInputPasswordProps = {
-        className: `input input-bordered ${inputType} w-full max-w-xs flex items-center gap-2 input-${size}`
+        className: `input input-bordered ${inputType} w-full flex items-center gap-2 input-${size}`
       };
     
       return (

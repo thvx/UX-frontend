@@ -2,6 +2,7 @@ import './App.css'
 import RegistroVendedor from '../src/app/Registro/registroVendedor'
 import TestComponentes from './app/Test/testComponentes'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import RegistroComprador from '../src/app/Registro/registroComprador'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<TestComponentes />} />
         <Route path="/registro/vendedor" element={<RegistroVendedor/>} />
+        <Route path="/registro/comprador" element={<RegistroComprador/>} />
       </Routes>
     </BrowserRouter>
   )

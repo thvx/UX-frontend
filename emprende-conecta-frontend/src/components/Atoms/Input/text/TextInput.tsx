@@ -14,7 +14,7 @@ type TextInputProps = {
 const TextInput: React.FC<TextInputProps> = ({ inputType = '', isDisabled = false, size, placeholder, required, value, name, onChange }) => {
     const TextInputProps = {
         disabled: isDisabled,
-        className: `input input-bordered w-full max-w-xs ${inputType} input-${size}`,
+        className: `input input-bordered w-full ${inputType} input-${size}`,
         required: required,
         value: value,
         name: name,

@@ -13,7 +13,7 @@ type TextInputUsernameProps = {
 
 const TextInputUsername: React.FC<TextInputUsernameProps> = ({ inputType = '', isDisabled = false, size, placeholder,  required, value, name, onChange }) => {
     const TextInputUsernameProps = {
-        className: `input input-bordered ${inputType} w-full max-w-xs flex items-center gap-2 input-${size}`
+        className: `input input-bordered ${inputType} w-full flex items-center gap-2 input-${size}`
       };
     
       return (
