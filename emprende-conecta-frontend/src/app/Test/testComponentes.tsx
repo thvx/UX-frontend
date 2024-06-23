@@ -29,6 +29,7 @@ import CardLogin from "../../components/Atoms/DataDisplay/Card/CardLogIn"; // Fi
 import Carousel from "../../components/Atoms/DataDisplay/Carousel/Carousel";
 import Collapse from "../../components/Atoms/DataDisplay/Collapse/Collapse";
 import Table from "../../components/Atoms/DataDisplay/Table/Table";
+import CardAddProduct from "../../components/Atoms/DataDisplay/Card/CardAddProduct.tsx";
 
 import { ChangeEvent } from "react";
 
@@ -246,6 +247,10 @@ const App: React.FC = () => {
 
       <div>
       <Table data={tableData}/>
+      </div>
+
+      <div>
+      <CardAddProduct image={cardProductData.image} title={cardProductData.title} store="pollo frito" price="S/100" initialQuantity={1} />
       </div>
     </div>
   )
