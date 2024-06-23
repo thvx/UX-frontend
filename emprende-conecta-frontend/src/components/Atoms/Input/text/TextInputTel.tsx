@@ -1,6 +1,6 @@
 import React from 'react';
 
-type TextInputProps = {
+type TextInputTelProps = {
   inputType?: 'input-primary' | 'input-secondary' | 'input-accent' | 'input-success' | 'input-warning' | 'input-info' | 'input-error',
     isDisabled?: boolean,
     size: 'xs' | 'sm' | 'md' | 'lg',
@@ -11,7 +11,7 @@ type TextInputProps = {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 };
 
-const TextInput: React.FC<TextInputProps> = ({ inputType = '', isDisabled = false, size, placeholder, required, value, name, onChange }) => {
+const TextInputTel: React.FC<TextInputTelProps> = ({ inputType = '', isDisabled = false, size, placeholder, required, value, name, onChange }) => {
     const TextInputProps = {
         disabled: isDisabled,
         className: `input input-bordered w-full max-w-xs ${inputType} input-${size}`,
@@ -22,8 +22,8 @@ const TextInput: React.FC<TextInputProps> = ({ inputType = '', isDisabled = fals
       };
     
       return (
-        <input type="text" placeholder={placeholder} {...TextInputProps} />
+        <input type="tel" placeholder={placeholder} {...TextInputProps} />
       );
 }
 
-export default TextInput;
+export default TextInputTel;
