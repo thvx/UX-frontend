@@ -56,7 +56,7 @@ const Dashboard: React.FC<DashboardProps> = ({tableResults, cardsData}) => {
                     <h2 className="text-white text-2xl">Recomendados</h2>
                     <div className="flex flex-col gap-6 p-6">
                         {cardsData.map((card, index) => (
-                            <CardProductos key={index} {...card} />
+                            <CardProductos key={index} {...card} extraClasses="h-80"/>
                         ))}
                     </div>
                 </div>
@@ -65,7 +65,7 @@ const Dashboard: React.FC<DashboardProps> = ({tableResults, cardsData}) => {
                     <h2 className="text-white text-2xl">Resultados</h2>
                     <div className="flex flex-row justify-center gap-6 p-6 flex-wrap">
                         {filteredResultsCards.map((card, index) => (
-                            <CardProductos key={index} {...card} />
+                            <CardProductos key={index} {...card} extraClasses="h-96"/>
                         ))}
                     </div>
                 </div>
