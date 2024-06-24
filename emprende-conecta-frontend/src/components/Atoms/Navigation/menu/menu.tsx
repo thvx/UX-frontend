@@ -8,13 +8,34 @@ type MenuItems = {
 
 type MenuProps = {
     items: MenuItems[],
+    variant: "style1" | "style2"
 }
 
-const Menu: React.FC<MenuProps> = ({ items }) => {
-    return(
-        <>
-            <ul className="menu bg-custom-blue w-56 rounded-box">
-                {items.map((item, index) => (
+const Menu: React.FC<MenuProps> = ({ items, variant }) => {
+    if (variant === "style1") {
+        return (
+            <>
+                <ul className="menu bg-custom-blue rounded-box">
+                    {items.map((item, index) => (
+                        <li key={index} className="relative group">
+                            <a className={`text-white`}>
+                                <svg xmlns={item.iconLink} className="h-8 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={item.d} />
+                                </svg>
+                                <span className="absolute left-1/2 -translate-x-1/2 -top-6 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-800 text-white text-xs rounded py-1 px-2">
+                                    {item.title}
+                                </span>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </>
+        );
+    } else {
+        return (
+            <>
+                <ul className="menu bg-transparent w-56 rounded-box">
+                    {items.map((item, index) => (
                         index === 0 ? (
                             <li key={index}>
                                 <a className="text-cyan-500 font-bold">
@@ -30,10 +51,11 @@ const Menu: React.FC<MenuProps> = ({ items }) => {
                                 </a>
                             </li>
                         )
-                ))}
-            </ul>
-        </>
-    )
+                    ))}
+                </ul>
+            </>
+        );
+    }
 }
 
 export default Menu
