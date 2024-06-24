@@ -24,8 +24,10 @@ const Radio: React.FC<RadioProps> = ({ radioType = 'radio-accent', isDisabled = 
   return (
     <div className="form-control">
       <label className="label cursor-pointer">
-        <span className={`label-text ${marginRight}`}>{text}</span>
-        <input type="radio" {...radioProps} />
+        <input type="radio" style={{ marginRight: '8px' }} {...radioProps} />
+        <span className={`label-text ${marginRight}`} style={{ whiteSpace: 'pre-wrap', color: 'white', fontWeight: 'bold' }}>
+          {text}
+        </span>
       </label>
     </div>
   );
