@@ -50,8 +50,8 @@ const RegistroComprador: React.FC = () => {
             )}
             {currentPage === 1 && (
                 <>
-                    <h1 className="text-2xl font-bold text-yellow-400 text-center mb-4">
-                        Datos personales:
+                    <h1 className="text-2xl font-bold text-custom-yellow text-center mb-4">
+                        Datos personales
                     </h1>
                     <div className="flex justify-center mb-4">
                         <div className="relative">
@@ -135,8 +135,8 @@ const RegistroComprador: React.FC = () => {
             )}
             {currentPage === 2 && (
                 <>
-                    <h1 className="text-2xl font-bold text-yellow-400 text-center mb-4">
-                        Información de contacto:
+                    <h1 className="text-2xl font-bold text-custom-yellow text-center mb-4">
+                        Información de contacto
                     </h1>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <FormGroup
