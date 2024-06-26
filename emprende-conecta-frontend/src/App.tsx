@@ -5,6 +5,7 @@ import Dashboard from './app/Dashboard/dashboard'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import RegistroComprador from '../src/app/Registro/registroComprador'
 import RegistroVendedor from '../src/app/Registro/registroVendedor'
+import Login from './app/Login/login'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/preregistro" element={<Preregistro />} />
         <Route path="/registro/comprador" element={<RegistroComprador/>} />
         <Route path="/registro/vendedor" element={<RegistroVendedor/>} />
+        <Route path="/login" element = {<Login/>} />
       </Routes>
     </BrowserRouter>
   )
