@@ -2,14 +2,15 @@
 import React from "react";
 import arrow_left from "../../../assets/imagenes/arrowleft.png"
 import logo_emprende from "../../../assets/imagenes/Logo-Emprende-Conecta.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavBarUser: React.FC = () => {
+    const navigate = useNavigate();
     return (
-        <div className="navbar bg-custom-blue">
+        <div className="navbar bg-custom-blue" style={{ boxShadow: "0 6px 10px -1px rgba(0, 0, 0, 0.2), 0 4px 5px -2px rgba(0, 0, 0, 0.2)" }}>
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle" onClick={() => navigate(-1)}>
                         <img className="h-8 w-8" src={arrow_left} />
                     </div>
                 </div>
@@ -21,7 +22,9 @@ const NavBarUser: React.FC = () => {
             </div>
             <div className="navbar-end">
                 <button className="btn btn-ghost btn-circle">
-                    <img src={logo_emprende} className="h-10 w-10" />
+                    <Link to="/">
+                        <img src={logo_emprende} className="h-10 w-10" />
+                    </Link>
                 </button>
             </div>
         </div>
