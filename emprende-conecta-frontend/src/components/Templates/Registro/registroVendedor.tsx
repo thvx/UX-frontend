@@ -247,9 +247,9 @@ const RegistroVendedorForm: React.FC = () => {
       {currentPage === 3 && (
         <div className="flex flex-col lg:mx-64 px-12 mb-12">
          <div className="flex justify-center items-center">
-              <h1 className="text-2xl font-bold text-custom-yellow mb-4 p-12  pb-4">Datos personales</h1>
+              <h1 className="text-2xl font-bold text-custom-yellow mb-4 p-12 pb-4">Datos personales</h1>
           </div>
-          <div className="self-center rounded-lg border-custom-yellow lg:ml-24 p-12 mb-24 w-96 flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center gap-4">
                 <Avatar 
                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                     alt="Foto de perfil emprendimiento"
@@ -285,16 +285,16 @@ const RegistroVendedorForm: React.FC = () => {
                     onChange={handleInputChange} 
                     name="telefono" 
                 />
-          
-          <div className="flex flex-col items-center justify-center pt-12">
-            <Button text="Registrar" width="auto" type="submit"/>
-            <div role="tablist" className="tabs tabs-bordered pt-8">
-              <a role="tab" className={`tab ${currentPage === 1 ? 'tab-active' : ''}`} onClick={() => handleTabChange(1)}>1</a>
-              <a role="tab" className={`tab ${currentPage === 2 ? 'tab-active' : ''}`} onClick={() => handleTabChange(2)}>2</a>
-              <a role="tab" className={`tab ${currentPage === 3 ? 'tab-active' : ''}`} onClick={() => handleTabChange(3)}>3</a>
             </div>
-          </div>
-        </div></div>
+            <div className="flex flex-col items-center justify-center pt-12">
+              <Button text="Registrar" width="auto" type="submit"/>
+              <div role="tablist" className="tabs tabs-bordered pt-8">
+                <a role="tab" className={`tab ${currentPage === 1 ? 'tab-active' : ''}`} onClick={() => handleTabChange(1)}>1</a>
+                <a role="tab" className={`tab ${currentPage === 2 ? 'tab-active' : ''}`} onClick={() => handleTabChange(2)}>2</a>
+                <a role="tab" className={`tab ${currentPage === 3 ? 'tab-active' : ''}`} onClick={() => handleTabChange(3)}>3</a>
+              </div>
+            </div>
+        </div>
       )}
     </form>
   );
