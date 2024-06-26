@@ -194,12 +194,12 @@ const App: React.FC = () => {
           <FileInput />
           <RadioList items={radioItems} />
           <Select size="select-xs" items={['Seleccionar elemento', 'zzzz', 'dsdsad']} />
-          <TextInput size="input-md" placeholder="Escribe..." />
-          <TextInputMail placeholder="Correo" size="input-md" />
-          <TextInputSearch placeholder="Buscar" size="input-md" />
-          <TextInputUsername placeholder="Usuario" size="input-md" />
-          <TextInputPassword placeholder="Contraseña" size="input-md" />
-          <TextArea placeholder="Ingresa texto" size="textarea-md" />
+          <TextInput size="md" placeholder="Escribe..." />
+          <TextInputMail placeholder="Correo" size="md" />
+          <TextInputSearch placeholder="Buscar" size="md" />
+          <TextInputUsername placeholder="Usuario" size="md" />
+          <TextInputPassword placeholder="Contraseña" size="md" />
+          <TextArea placeholder="Ingresa texto" size="md" />
           <Toggle size="toggle-xs" />
       </div>
       <div>
@@ -220,7 +220,7 @@ const App: React.FC = () => {
       </div>
 
       <div className="flex flex-col items-center gap-6 p-6">
-      <Avatar />
+
       </div>
 
       <div className="flex flex-col items-center gap-6 p-6">
