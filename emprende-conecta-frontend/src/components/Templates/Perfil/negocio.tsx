@@ -89,48 +89,61 @@ const PerfilNegocio = () => {
       {
         image: zapatillaRoja,
         title: "Zapatillas M2 Red",
-        description: "Disfruta del sun, disfruta del red",
+        description: "Disfruta del red",
         badges: ["badge1", "badge2"],
         isNew: true,
         extraClasses: "Yes"
       }];
 
     return (
-        <div className="flex h-screen relative">
-            <div className="w-18 top-0 left-0 h-full z-20" style={{ boxShadow: '10px 0 5px -2px rgba(0, 0, 0, 0.1)' }}>
-                <Menu items={menuItems1} variant="style1" />
+      <div style={{ display: 'flex', width: '100vw'}}>
+        <div style={{ boxShadow: '10px 0 5px -2px rgba(0, 0, 0, 0.1)', width:'4rem'}}>
+          <Menu items={menuItems1} variant="style1" />
+        </div>
+        <div className="content" style={{width: '100vw'}}>
+          <div className="container mx-auto">
+            <div className="relative" style={{ width: "100%" }}>
+              <div style={{
+                height: "500px",
+                backgroundImage: `url(${banner})`,
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+              }} className="justify-start px-10 mb-5">
+
+              </div>
+              <div style={{position:'absolute',bottom: '-30px', left: '50%', transform: 'translateX(-50%)'}}>
+                <img src={logoCordillera} alt="Imagen superpuesta"
+                  className="w-40 h-40 rounded-full border-4 bg-custom-lightblue shadow-lg" />
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center h-full bg-custom-blue" style={{ marginLeft: '72px' }}>
-                <div className="relative mb-32 mt-10 w-full max-w-4xl">
-                    <div className="relative rounded-lg shadow-lg overflow-hidden border-4 bg-custom-lightblue">
-                    <img src={banner} alt="Imagen de fondo" className="w-full"/>
-                    </div>
-                    <div className="absolute bottom-0 max-w-lg transform translate-y-1/2 left-1/2 -translate-x-1/2">
-                    <img src={logoCordillera} alt="Imagen superpuesta" className="w-40 h-40 rounded-full border-4 bg-custom-lightblue shadow-lg"/>
-                    </div>
-                </div>
-                <div className="flex w-full justify-center content-center">
-                    <div className="flex flex-col justify-center text-center w-auto">
-                    <h2 className="text-white font-bold text-4xl"> KLYN </h2>
-                    <Menu items={menuItems2} variant="style2"/>
-                    </div>
-                    <div className="mx-5 w-1/4">
-                    <div className="flex gap-3 mb-5">
+
+            <div className="flex flex-col items-center mt-20">
+              <div className="jusstify-center flex w-full" style={{ marginLeft:'20px'}}>
+                <div className="flex-1 justify-center text-center my-5 items-center">
+                  <h2 className="text-white font-bold text-2xl text-center"> KLYN </h2>
+                  <div className="flex justify-center">
+                    <Menu items={menuItems2} variant="style2" />
+                  </div>
+                  <div className="flex gap-3 my-5 justify-center ">
                         <Button text="Seguir" width="auto" />
                         <Button text="Mensaje" width="auto" />
-                    </div>
-                    <div className="flex-1 gap-3 flex w-auto">
-                        <div className="flex flex-col items-center gap-6 p-6">
-                        <CardProductos image={cardProductData[0].image} title={cardProductData[0].title} description={cardProductData[0].description} isNew={cardProductData[0].isNew} badges={cardProductData[0].badges} extraClasses={cardProductData[0].extraClasses}/>
-                        </div>
-                        <div className="flex flex-col items-center gap-6 p-6">
-                        <CardProductos image={cardProductData[1].image} title={cardProductData[1].title} description={cardProductData[1].description} isNew={cardProductData[1].isNew} badges={cardProductData[1].badges} extraClasses={cardProductData[1].extraClasses}/>
-                        </div>
-                    </div>
-                    </div>
+                  </div>
                 </div>
+                <div className="flex flex-1 items-center justify-center gap-6 p-6">
+                  <CardProductos image={cardProductData[0].image} title={cardProductData[0].title}
+                    description={cardProductData[0].description} isNew={cardProductData[0].isNew}
+                    badges={cardProductData[0].badges} extraClasses={cardProductData[0].extraClasses} />
+                  <CardProductos image={cardProductData[1].image} title={cardProductData[1].title}
+                  description={cardProductData[1].description} isNew={cardProductData[1].isNew}
+                  badges={cardProductData[1].badges} extraClasses={cardProductData[1].extraClasses} />
+                </div>
+        
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     )
 }
 
