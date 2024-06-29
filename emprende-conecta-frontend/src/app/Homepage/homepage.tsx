@@ -6,7 +6,7 @@ function App() {
     return (
         <div className="h-full flex flex-col bg-custom-blue">
             <div>
-                <Navbar searchValue="Busca productos en Emprende&Conecta"/>
+                <Navbar searchValue="Busca productos en Emprende&Conecta" />
                 <Homepage />
                 <Footer />
             </div>
