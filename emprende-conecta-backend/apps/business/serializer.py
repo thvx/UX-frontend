@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Persona, TipoPersona
+from apps.business.models import Persona, TipoPersona
 
 class PersonaSerializer (serializers.ModelSerializer):
     class Meta:
