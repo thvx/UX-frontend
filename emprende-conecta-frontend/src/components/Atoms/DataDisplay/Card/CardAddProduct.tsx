@@ -19,8 +19,10 @@ const CardProductos: React.FC<CardProductosProps> = ({ image, title, store, pric
     };
 
     useEffect(() => {
-        onQuantityChange(quantity);
-    }, [quantity, onQuantityChange]);
+        if (quantity !== initialQuantity) {
+            onQuantityChange(quantity);
+        }
+    }, [quantity, initialQuantity, onQuantityChange]);
 
     const increaseQuantity = () => setQuantity(prevQuantity => prevQuantity + 1);
     const decreaseQuantity = () => setQuantity(prevQuantity => (prevQuantity > 0 ? prevQuantity - 1 : 0));
