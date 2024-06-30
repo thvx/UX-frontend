@@ -1,6 +1,7 @@
 import Checkout from '../../components/Templates/Checkout/checkout';
 import Footer from '../../components/Organism/footer/footer';
 import React, {useEffect, useState} from 'react';
+import { TotalAmountProvider } from './totalAmountContext';
 
 const App: React.FC = () => {
   const [products, setProducts] = useState<{ img: string; title: string; store: string; price: string; quantity: number; }[]>([]);
@@ -36,24 +37,25 @@ const App: React.FC = () => {
 
   const stepsText = [
     'Visualización de Productos',
-    'Identificación',
     'Confirmación de pago',
     'Entrega de voucher'
   ];
 
   return (
-    <div className="app-container h-min-screen flex-grow bg-custom-blue flex flex-col">
-        <main className="main-content flex flex-col m-8 px-8">
-          <Checkout
-            stepsData={[{ stepsText: stepsText, numPages: 4, actualPage: 1 }]}
-            productsData={products}
-            deliveryOptions={deliveryOptions}
-            buttonData={[{ text: 'Siguiente' }]}
-            onProductUpdate={handleProductUpdate}
-          />
-        </main>
-      <Footer />
-    </div>
+    <TotalAmountProvider>
+      <div className="app-container h-min-screen flex-grow bg-custom-blue flex flex-col">
+          <main className="main-content flex flex-col m-8 px-8">
+            <Checkout
+              stepsData={[{ stepsText: stepsText, numPages: 3, actualPage: 1 }]}
+              productsData={products}
+              deliveryOptions={deliveryOptions}
+              buttonData={[{ text: 'Siguiente' }]}
+              onProductUpdate={handleProductUpdate}
+            />
+          </main>
+        <Footer />
+      </div>
+    </TotalAmountProvider>
   );
 };
 
