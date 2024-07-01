@@ -2,6 +2,7 @@
 import React from "react";
 import arrow_left from "../../../assets/imagenes/arrowleft.png"
 import logo_emprende from "../../../assets/imagenes/Logo-Emprende-Conecta.png"
+<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
 
 const NavBarUser: React.FC = () => {
@@ -11,6 +12,16 @@ const NavBarUser: React.FC = () => {
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle" onClick={() => navigate(-1)}>
+=======
+import { Link } from "react-router-dom";
+
+const NavBar: React.FC = () => {
+    return (
+        <div className="navbar bg-custom-blue">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+>>>>>>> 5c8b0cfb5a87dd715a79883b49ce2ece82b0809c
                         <img className="h-8 w-8" src={arrow_left} />
                     </div>
                 </div>
@@ -22,16 +33,24 @@ const NavBarUser: React.FC = () => {
             </div>
             <div className="navbar-end">
                 <button className="btn btn-ghost btn-circle">
+<<<<<<< HEAD
                     <Link to="/">
                         <img src={logo_emprende} className="h-10 w-10" />
                     </Link>
+=======
+                    <img src={logo_emprende} className="h-10 w-10" />
+>>>>>>> 5c8b0cfb5a87dd715a79883b49ce2ece82b0809c
                 </button>
             </div>
         </div>
     )
 }
 
+<<<<<<< HEAD
 export default NavBarUser
+=======
+export default NavBar
+>>>>>>> 5c8b0cfb5a87dd715a79883b49ce2ece82b0809c
 
 
 /*
