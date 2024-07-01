@@ -13,7 +13,7 @@ interface NavbarProps {
   onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({searchValue, onSearchChange }) => {
+const Navbar: React.FC<NavbarProps> = ({ searchValue, onSearchChange }) => {
   return (
     <div className="navbar justify-center px-12 gap-12 ">
       <div className="flex-1 gap-12">
@@ -24,9 +24,9 @@ const Navbar: React.FC<NavbarProps> = ({searchValue, onSearchChange }) => {
           onChange={onSearchChange}
         />
       </div>
-          <Dropdown buttonText="Inicia Sesión" items={dropdownItems} />
-          <Logo src={Imagen} alt="Logo Right" size='w-10' />
-      </div>
+      <Dropdown buttonText="Inicia Sesión" items={dropdownItems} />
+      <Logo src={Imagen} alt="Logo Right" size='w-10' />
+    </div>
   );
 };
 

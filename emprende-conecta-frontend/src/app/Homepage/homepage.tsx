@@ -1,15 +1,22 @@
 import Homepage from "../../components/Templates/Homepage/homepage";
 import Footer from "../../components/Organism/footer/footer";
 import Navbar from "../../components/Organism/navbar/navbar";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from 'react';
 
 function App() {
+    const [searchValue, setSearchValue] = useState('');
+
+    const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearchValue(e.target.value);
+    };
+
     return (
         <div className="h-full flex flex-col bg-custom-blue">
             <div>
-                <Navbar searchValue="Busca productos en Emprende&Conecta" onSearchChange={function (e: ChangeEvent<HTMLInputElement>): void {
-                    throw new Error("Function not implemented.");
-                } } />
+                <Navbar 
+                    searchValue={searchValue} 
+                    onSearchChange={handleSearchChange}
+                />
                 <Homepage />
                 <Footer />
             </div>
