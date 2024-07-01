@@ -1,8 +1,11 @@
 import './App.css'
-import RegistroVendedor from '../src/app/Registro/registroVendedor'
-import TestComponentes from './app/Test/testComponentes'
+import Preregistro from './app/Registro/preregistro'
+import Dashboard from './app/Dashboard/dashboard'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import RegistroComprador from '../src/app/Registro/registroComprador'
+import RegistroVendedor from '../src/app/Registro/registroVendedor'
+import Login from './app/Login/login'
+import Homepage from './app/Homepage/homepage'
 import PerfilNegocio from '../src/app/Perfil/negocio'
 
 function App() {
@@ -10,9 +13,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<TestComponentes />} />
-        <Route path="/registro/vendedor" element={<RegistroVendedor/>} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/preregistro" element={<Preregistro />} />
         <Route path="/registro/comprador" element={<RegistroComprador/>} />
+        <Route path="/registro/vendedor" element={<RegistroVendedor/>} />
+        <Route path="/login" element = {<Login/>} />
         <Route path="/perfil/negocio" element={<PerfilNegocio/>} />
       </Routes>
     </BrowserRouter>

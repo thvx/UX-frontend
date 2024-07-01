@@ -10,7 +10,6 @@ type MenuProps = {
     items: MenuItems[],
     variant: "style1" | "style2"
 }
-
 const Menu: React.FC<MenuProps> = ({ items, variant }) => {
     if (variant === "style1") {
         return (
@@ -58,4 +57,4 @@ const Menu: React.FC<MenuProps> = ({ items, variant }) => {
     }
 }
 
-export default Menu
+export default Menu;

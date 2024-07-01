@@ -3,16 +3,16 @@ import React from 'react';
 
 
 type CardLoginProps = { 
+    img: string;
     content: string;
 };
 
 
-const CardLogin: React.FC<CardLoginProps> = ({content}) => {
+const CardLogin: React.FC<CardLoginProps> = ({img, content}) => {
     return (
-        <>
-            <div className="card w-96 bg-custom-yellow shadow-xl">
-                <figure><img src="https://elcomercio.pe/resizer/CmxuFeoOhjNdKCn9agbSGyKZYqo=/580x330/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/S2ZXU5QHXFBVPDOUBC5OUCL5LE.jpg"
-                        alt="Purchaser" /></figure>
+        <> 
+            <div className="card w-96 h-72 bg-custom-yellow shadow-xl">
+                <figure><img src={img} alt="Purchaser" /></figure>
                 <div className="card-title">
                     <h2 className="card-body text-center text-custom-blue">{content}</h2>
                 </div>

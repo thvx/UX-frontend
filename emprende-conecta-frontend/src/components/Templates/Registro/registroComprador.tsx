@@ -50,8 +50,8 @@ const RegistroComprador: React.FC = () => {
             )}
             {currentPage === 1 && (
                 <>
-                    <h1 className="text-2xl font-bold text-yellow-400 text-center mb-4">
-                        Datos personales:
+                    <h1 className="text-2xl font-bold text-custom-yellow text-center mb-4 py-6">
+                        Datos personales
                     </h1>
                     <div className="flex justify-center mb-4">
                         <div className="relative">
@@ -80,7 +80,7 @@ const RegistroComprador: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="space-y-4 w-full md:w-2/4 mx-auto">
+                    <div className="space-y-4 w-full md:w-4/12 mx-auto">
                         <FormGroup
                             type='text'
                             label=""
@@ -135,52 +135,54 @@ const RegistroComprador: React.FC = () => {
             )}
             {currentPage === 2 && (
                 <>
-                    <h1 className="text-2xl font-bold text-yellow-400 text-center mb-4">
-                        Información de contacto:
+                    <h1 className="text-2xl font-bold text-custom-yellow text-center mb-4 py-6">
+                        Información de contacto
                     </h1>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <FormGroup
-                            type='tel'
-                            label=""
-                            name="telefono"
-                            placeholder="Teléfono"
-                        />
-                        <FormGroup
-                            label=""
-                            name="contrasena"
-                            placeholder="Contraseña"
-                            type='password'
-                        />
-                        <FormGroup
-                            label=""
-                            name="correoElectronico"
-                            placeholder="Correo electrónico"
-                            type='email'
-                        />
-                        <FormGroup
-                            label=""
-                            name="confirmarContrasena"
-                            placeholder="Confirmar contraseña"
-                            type='password'
-                        />
-                        <FormGroup
-                            label=""
-                            name="correoRecuperacion"
-                            placeholder="Correo de recuperación"
-                            type='email'
-                        />
-                        <FormGroup
-                            label=""
-                            name="direccion"
-                            placeholder="Dirección"
-                            type='text'
-                        />
+                    <div className="flex justify-center">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 w-1/2">
+                            <FormGroup
+                                type='tel'
+                                label=""
+                                name="telefono"
+                                placeholder="Teléfono"
+                            />
+                            <FormGroup
+                                label=""
+                                name="contrasena"
+                                placeholder="Contraseña"
+                                type='password'
+                            />
+                            <FormGroup
+                                label=""
+                                name="correoElectronico"
+                                placeholder="Correo electrónico"
+                                type='email'
+                            />
+                            <FormGroup
+                                label=""
+                                name="confirmarContrasena"
+                                placeholder="Confirmar contraseña"
+                                type='password'
+                            />
+                            <FormGroup
+                                label=""
+                                name="correoRecuperacion"
+                                placeholder="Correo de recuperación"
+                                type='email'
+                            />
+                            <FormGroup
+                                label=""
+                                name="direccion"
+                                placeholder="Dirección"
+                                type='text'
+                            />
+                        </div>
                     </div>
                     <div className="flex justify-center mt-4">
                         <img
                             src={Mapa}
                             alt="Mapa"
-                            className="w-full h-64 object-cover rounded-lg"
+                            className=" h-64 object-cover rounded-lg"
                         />
                     </div>
                     <div className="flex justify-center mt-4">

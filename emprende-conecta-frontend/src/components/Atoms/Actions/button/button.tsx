@@ -1,17 +1,23 @@
-import React from 'react';
+import React from "react";
 
 type ButtonProps = {
     text: string;
-    width: 'half' | 'quarter' | 'auto'; // Anchos disponibles
+    width: "full" | "half" | "quarter" | "auto"; // Agregar 'full' a los anchos disponibles
     onClick?: () => void; // Prop onClick opcional
-    type?: 'button' | 'submit' | 'reset'; // Tipo del botón
+    type?: "button" | "submit" | "reset"; // Tipo del botón
 };
 
-const Button: React.FC<ButtonProps> = ({ text, width, onClick, type = 'button' }) => {
+const Button: React.FC<ButtonProps> = ({
+    text,
+    width,
+    onClick,
+    type = "button",
+}) => {
     const widthClass = {
-        half: 'w-1/2',
-        quarter: 'w-1/4',
-        auto: 'w-auto'
+        full: "w-full", // Clase para el ancho completo
+        half: "w-1/2",
+        quarter: "w-1/4",
+        auto: "w-auto",
     }[width];
 
     return (

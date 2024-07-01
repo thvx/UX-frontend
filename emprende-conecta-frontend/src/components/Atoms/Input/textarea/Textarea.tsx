@@ -14,7 +14,7 @@ type TextAreaProps = {
 const TextArea: React.FC<TextAreaProps> = ({ textareaType = '', isDisabled = false, size, placeholder,  required, value, name, onChange }) => {
     const TextAreaProps = {
         disabled: isDisabled,
-        className: `textarea textarea-bordered w-full ${textareaType} textarea-${size}`,
+        className: `textarea textarea-bordered w-full max-w-xs ${textareaType} textarea-${size}`,
         required: required,
         value: value,
         name: name,

@@ -22,7 +22,9 @@ const NavBarUser: React.FC = () => {
             </div>
             <div className="navbar-end">
                 <button className="btn btn-ghost btn-circle">
-                    <img src={logo_emprende} className="h-10 w-10" />
+                    <Link to="/">
+                        <img src={logo_emprende} className="h-10 w-10" />
+                    </Link>
                 </button>
             </div>
         </div>
