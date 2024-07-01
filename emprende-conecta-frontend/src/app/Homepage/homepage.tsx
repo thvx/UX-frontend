@@ -1,7 +1,7 @@
-import Homepage from "../../components/Templates/Homepage/homepage";
 import Footer from "../../components/Organism/footer/footer";
 import Navbar from "../../components/Organism/navbar/navbar";
 import { ChangeEvent, useState } from 'react';
+import HomeTemplate from "../../components/Templates/Homepage/HomeTemplate";
 
 function App() {
     const [searchValue, setSearchValue] = useState('');
@@ -17,7 +17,7 @@ function App() {
                     searchValue={searchValue} 
                     onSearchChange={handleSearchChange}
                 />
-                <Homepage />
+                <HomeTemplate />
                 <Footer />
             </div>
         </div>
