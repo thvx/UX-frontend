@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../../components/Organism/Sidebar/sidebar";
+import Sidebar from "../../components/Organism/Siderbar/Sidebar";
 import FavoritesTemplate from "../../components/Templates/ProductosFav/Productos";
 
 const ProductosFav: React.FC = () => {
