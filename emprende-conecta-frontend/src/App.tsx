@@ -8,6 +8,7 @@ import Login from './app/Login/login'
 import Homepage from './app/Homepage/homepage'
 import Perfilusuario from './app/Perfilusuario/perfilusuario'
 import ProductosFav from './app/Productosfav/Productos'
+import ProductDetailsPage from './app/ProductDetailsPage/productdetailspage'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/perfilusuario" element={<Perfilusuario />} />
         <Route path='/productosfav' element={<ProductosFav />} />
+        <Route path='/productdetails' element={<ProductDetailsPage />} />
       </Routes>
     </BrowserRouter>
   )
