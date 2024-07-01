@@ -3,6 +3,11 @@ import SearchInput from '../../Atoms/Input/search/search';
 import Logo from '../../Atoms/Media/logo/logo';
 import Imagen from '../../../assets/imagenes/Logo-Emprende-Conecta.png';
 
+const dropdownItems = [
+  { text: 'Inicia Sesión', link: '/login' },
+  { text: 'Regístrate', link: '/preregistro' },
+];
+
 interface NavbarProps {
   searchValue: string;
   onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -19,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({searchValue, onSearchChange }) => {
           onChange={onSearchChange}
         />
       </div>
-          <Dropdown buttonText="Inicia Sesión" items={['Inicia Sesión', 'Regístrate']} />
+          <Dropdown buttonText="Inicia Sesión" items={dropdownItems} />
           <Logo src={Imagen} alt="Logo Right" size='w-10' />
       </div>
   );
