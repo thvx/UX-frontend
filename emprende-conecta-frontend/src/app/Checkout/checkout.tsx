@@ -1,7 +1,6 @@
 import Checkout from '../../components/Templates/Checkout/checkout';
 import Footer from '../../components/Organism/footer/footer';
 import React, {useEffect, useState} from 'react';
-import { TotalAmountProvider } from './totalAmountContext';
 
 const App: React.FC = () => {
   const [products, setProducts] = useState<{ img: string; title: string; store: string; price: string; quantity: number; }[]>([]);
@@ -42,7 +41,6 @@ const App: React.FC = () => {
   ];
 
   return (
-    <TotalAmountProvider>
       <div className="app-container h-min-screen flex-grow bg-custom-blue flex flex-col">
           <main className="main-content flex flex-col m-8 px-8">
             <Checkout
@@ -55,7 +53,6 @@ const App: React.FC = () => {
           </main>
         <Footer />
       </div>
-    </TotalAmountProvider>
   );
 };
 

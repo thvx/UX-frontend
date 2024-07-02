@@ -64,7 +64,6 @@ const Checkout: React.FC<CheckoutProps> = ({ stepsData, productsData, deliveryOp
     [onProductUpdate]
   );
 
-
   return (
         <main className="main-content flex flex-col">
           <Steps numPages={stepsData[0].numPages} actualPage={stepsData[0].actualPage} stepsText={stepsData[0].stepsText} />

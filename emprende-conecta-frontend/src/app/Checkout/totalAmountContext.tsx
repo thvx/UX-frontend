@@ -1,9 +1,15 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-const TotalAmountContext = createContext<{ totalAmount: number, setTotalAmount: React.Dispatch<React.SetStateAction<number>> } | undefined>(undefined);
+interface TotalAmountContextProps {
+  totalAmount: number;
+  setTotalAmount: (amount: number) => void;
+}
 
-export const TotalAmountProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const TotalAmountContext = createContext<TotalAmountContextProps | undefined>(undefined);
+
+export const TotalAmountProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [totalAmount, setTotalAmount] = useState<number>(0);
+
   return (
     <TotalAmountContext.Provider value={{ totalAmount, setTotalAmount }}>
       {children}
@@ -11,7 +17,7 @@ export const TotalAmountProvider: React.FC<{ children: React.ReactNode }> = ({ c
   );
 };
 
-export const useTotalAmount = () => {
+export const useTotalAmount = (): TotalAmountContextProps => {
   const context = useContext(TotalAmountContext);
   if (!context) {
     throw new Error('useTotalAmount must be used within a TotalAmountProvider');

@@ -1,10 +1,7 @@
 import Pago from '../../components/Templates/Checkout/tipo-pago'
 import Footer from '../../components/Organism/footer/footer';
-import { useTotalAmount } from './totalAmountContext';
 
 const App: React.FC = () => {
-  const { totalAmount } = useTotalAmount();
-  
   const stepsText = [
     'Visualización de Productos',
     'Confirmación de pago',
@@ -22,8 +19,7 @@ const App: React.FC = () => {
         <main className="main-content flex flex-col m-8 px-8">
           <Pago
           stepsData={[{ stepsText: stepsText, numPages: 3, actualPage: 2 }]}
-          paymentOptions={paymentOptions}
-          totalAmount={totalAmount}          
+          paymentOptions={paymentOptions}  
           />
         </main>
       <Footer />

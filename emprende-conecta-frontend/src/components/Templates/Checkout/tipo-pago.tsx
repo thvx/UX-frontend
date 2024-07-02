@@ -16,13 +16,11 @@ interface PagoProps {
     img: string;
     type: string;
   }[];
-  totalAmount: number;
 }
 
 const Pago: React.FC<PagoProps> = ({ stepsData, paymentOptions}) => {
   const [selectedOption, setSelectedOption] = useState<number>(0);
-
-  const { totalAmount } = useTotalAmount();
+  const {totalAmount} = useTotalAmount();
   // Verificar el valor de totalAmount
   console.log('Total Amount recibido:', totalAmount);
 
