@@ -58,4 +58,4 @@ const Menu: React.FC<MenuProps> = ({ items, variant }) => {
     }
 }
 
-export default Menu
+export default Menu;

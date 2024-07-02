@@ -1,10 +1,14 @@
 import React from 'react';
 
-type DropdownProps = {
-  buttonText: string;
-  items: string[];
+type DropdownItem = {
+  text: string;
+  link: string;
 };
 
+type DropdownProps = {
+  buttonText: string;
+  items: DropdownItem[];
+}
 
 const Dropdown: React.FC<DropdownProps> = ({ buttonText, items }) => {
     return (
@@ -14,8 +18,9 @@ const Dropdown: React.FC<DropdownProps> = ({ buttonText, items }) => {
         </div>
         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow rounded-box w-52">
           {items.map((item, index) => (
-            <li key={index}><a className={'block py-2 px-4 rounded'}
-              >{item}
+            <li key={index}>
+              <a href={item.link} className={'block py-2 px-4 rounded'}
+              >{item.text}
               </a>
             </li>
           ))}
