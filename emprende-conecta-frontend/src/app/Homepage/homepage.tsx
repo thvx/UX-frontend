@@ -1,6 +1,6 @@
-import Homepage from "../../components/Templates/Homepage/homepage";
-import Footer from "../../components/Organism/footer/footer";
-import Navbar from "../../components/Organism/navbar/navbar";
+import Header from '../../components/Organism/header/header'
+import Homepage from '../../components/Templates/Homepage/homepage'
+import Footer from '../../components/Organism/footer/footer'
 
 function App() {
     return (
@@ -14,4 +14,4 @@ function App() {
     );
 }
 
-export default App;
+export default App

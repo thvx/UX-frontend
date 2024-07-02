@@ -19,7 +19,17 @@ const Navbar: React.FC<NavbarProps> = ({searchValue, onSearchChange }) => {
           onChange={onSearchChange}
         />
       </div>
+<<<<<<< HEAD
           <Dropdown buttonText="Inicia Sesión" items={['Inicia Sesión', 'Regístrate']} />
+=======
+          <Dropdown
+            buttonText="Ingresa"
+            items={[
+              { label: 'Iniciar Sesión', onClick: () => window.location.href = '/login'},
+              { label: 'Registrarse', onClick: () => window.location.href = '/preregistro' }
+            ]}
+          />
+>>>>>>> 5c8b0cfb5a87dd715a79883b49ce2ece82b0809c
           <Logo src={Imagen} alt="Logo Right" size='w-10' />
       </div>
   );
