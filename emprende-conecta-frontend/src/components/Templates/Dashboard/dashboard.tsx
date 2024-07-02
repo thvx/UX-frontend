@@ -1,7 +1,7 @@
 import SearchInput from "../../Atoms/Input/search/search";
 import Table from "../../Atoms/DataDisplay/Table/Table";
 import CardProductos from "../../Atoms/DataDisplay/Card/CardProductos";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 interface DashboardProps {
@@ -26,6 +26,13 @@ const Dashboard: React.FC<DashboardProps> = ({tableResults, cardsData}) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredTableResults, setFilteredTableResults] = useState(tableResults);
     const [filteredResultsCards, setFilteredResultsCards] = useState(cardsData);
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const query = params.get('search')|| '';
+        setSearchQuery(query);
+    }, [location.search]);
 
     useEffect(() => {
         const fetchData = async () => {
