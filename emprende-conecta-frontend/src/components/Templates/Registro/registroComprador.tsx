@@ -7,15 +7,28 @@ import Avatar from '../../Atoms/DataDisplay/Avatar/Avatar';
 
 const RegistroComprador: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [showModal, setShowModal] = useState(false);
+    const [formData, setFormData] = useState({
+        nombres: '',
+        apellidos: '',
+        dni: '',
+        telefono: '',
+        contrasena: '',
+        correo: '',
+        direccion: ''
+      });
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const openModal = () => {
+        const modal = document.getElementById('my_modal_1') as HTMLDialogElement | null;
+        modal?.showModal();
+    };    
 
     const handleNextPage = () => {
         setCurrentPage((prevPage) => prevPage + 1);
-        scrollToTop();
-    };
-
-    const handlePreviousPage = () => {
-        setCurrentPage((prevPage) => prevPage - 1);
         scrollToTop();
     };
 
@@ -28,31 +41,11 @@ const RegistroComprador: React.FC = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
-        setShowModal(true);
-        scrollToTop();
-    };
-
     return (
-        <form
-            className="h-full p-4 flex flex-col mb-40"
-            onSubmit={handleSubmit}
-        >
-            {showModal && (
-                <Modal
-                    id="my_modal_1"
-                    title="¡REGISTRO EXITOSO!"
-                    message="Sus datos y el de su emprendimiento se han registrado correctamente"
-                    leftButtonText="Iniciar"
-                    rightButtonText="Guía Rápida"
-                />
-            )}
+        <form className="h-full p-4 flex flex-col mb-40">
             {currentPage === 1 && (
-                <>
-                    <h1 className="text-2xl font-bold text-custom-yellow text-center mb-4 py-6">
-                        Datos personales
-                    </h1>
+                <div className="flex flex-col">
+                    <h1 className="text-2xl font-bold text-custom-yellow text-center mb-4 py-6">Datos personales</h1>
                     <div className="flex justify-center mb-4">
                         <div className="relative">
                             <Avatar
@@ -79,24 +72,36 @@ const RegistroComprador: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="space-y-4 w-full md:w-4/12 mx-auto flex flex-col items-center">
+                    <div className="flex flex-col justify-center items-center gap-4">
                         <FormGroup
-                            type='text'
-                            label=""
-                            name="nombres"
-                            placeholder="Nombres"
+                            type='text' 
+                            label="Nombres" 
+                            placeholder="Nombres" 
+                            size='lg'
+                            required 
+                            value={formData.nombres} 
+                            onChange={handleInputChange} 
+                            name="nombres" 
                         />
                         <FormGroup
                             type='text'
-                            label=""
-                            name="apellidos"
-                            placeholder="Apellidos"
+                            label="Apellidos" 
+                            size='lg'
+                            placeholder="Apellidos" 
+                            required 
+                            value={formData.apellidos} 
+                            onChange={handleInputChange} 
+                            name="apellidos" 
                         />
                         <FormGroup
                             type='text'
-                            label="" 
-                            name="dni" 
-                            placeholder="DNI" 
+                            label="DNI" 
+                            size='lg'
+                            placeholder="DNI"
+                            required 
+                            value={formData.telefono} 
+                            onChange={handleInputChange}
+                            name="dni"
                          />
                     </div>
                     <div className="flex justify-center mt-4">
@@ -107,73 +112,74 @@ const RegistroComprador: React.FC = () => {
                             onClick={handleNextPage}
                         />
                     </div>
-                    <div
-                        role="tablist"
-                        className="tabs tabs-bordered pt-8 flex justify-center"
-                    >
-                        <a
-                            role="tab"
-                            className={`tab ${
-                                currentPage === 1 ? "tab-active" : ""
-                            }`}
-                            onClick={() => handleTabChange(1)}
-                        >
-                            1
+                    <div role="tablist" className="tabs tabs-bordered pt-8 flex justify-center">
+                        <a role="tab" className={`tab ${currentPage === 1 ? "tab-active" : ""}`}
+                            onClick={() => handleTabChange(1)}>1
                         </a>
-                        <a
-                            role="tab"
-                            className={`tab ${
-                                currentPage === 2 ? "tab-active" : ""
-                            }`}
-                            onClick={() => handleTabChange(2)}
-                        >
-                            2
+                        <a role="tab" className={`tab ${currentPage === 2 ? "tab-active" : ""}`}
+                            onClick={() => handleTabChange(2)}>2
                         </a>
                     </div>
-                </>
+                </div>
             )}
             {currentPage === 2 && (
                 <>
-                    <h1 className="text-2xl font-bold text-custom-yellow text-center mb-4 py-6">
-                        Información de contacto
-                    </h1>
+                    <h1 className="text-2xl font-bold text-custom-yellow text-center mb-4 py-6">Información de contacto</h1>
                     <div className="flex justify-center">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 w-full sm:w-3/4 lg:w-1/2">
                             <FormGroup
                                 type='tel'
-                                label=""
+                                label="Número de Teléfono"
                                 name="telefono"
                                 placeholder="Teléfono"
+                                required 
+                                value={formData.telefono} 
+                                onChange={handleInputChange}
                             />
                             <FormGroup
-                                label=""
+                                label="Contraseña"
                                 name="contrasena"
                                 placeholder="Contraseña"
                                 type='password'
+                                required 
+                                value={formData.contrasena} 
+                                onChange={handleInputChange}
                             />
                             <FormGroup
-                                label=""
+                                label="Correo Electrónico"
                                 name="correoElectronico"
                                 placeholder="Correo electrónico"
                                 type='email'
+                                required 
+                                value={formData.correo} 
+                                onChange={handleInputChange}
                             />
                             <FormGroup
-                                label=""
+                                label="Confirmar Contraseña"
                                 name="confirmarContrasena"
                                 placeholder="Confirmar contraseña"
                                 type='password'
+                                required 
+                                value={formData.contrasena} 
+                                onChange={handleInputChange}
                             />
                             <FormGroup
-                                label=""
+                                label="Correo de Recuperación"
                                 name="correoRecuperacion"
                                 placeholder="Correo de recuperación"
                                 type='email'
+                                required 
+                                value={formData.correo} 
+                                onChange={handleInputChange}
                             />
                             <FormGroup
-                                label=""
+                                label="Dirección"
                                 name="direccion"
                                 placeholder="Dirección"
                                 type='text'
+                                required 
+                                value={formData.direccion} 
+                                onChange={handleInputChange}
                             />
                         </div>
                     </div>
@@ -185,29 +191,23 @@ const RegistroComprador: React.FC = () => {
                         />
                     </div>
                     <div className="flex justify-center mt-4">
-                        <Button text="Registrar" width="auto" type="submit" />
+                            <Button text="Registrar" width="auto" type="submit" onClick={openModal}/>
+                            <Modal
+                                id="my_modal_1"
+                                title="¡REGISTRO EXITOSO!"
+                                message="Sus datos y el de su emprendimiento se han registrado correctamente"
+                                leftButtonText="Ir a mi perfil"
+                                rightButtonText="Explorar productos"
+                                leftButtonLink='/perfil/usuario'
+                                rightButtonLink='/dashboard'
+                            />
                     </div>
-                    <div
-                        role="tablist"
-                        className="tabs tabs-bordered pt-8 flex justify-center"
-                    >
-                        <a
-                            role="tab"
-                            className={`tab ${
-                                currentPage === 1 ? "tab-active" : ""
-                            }`}
-                            onClick={() => handleTabChange(1)}
-                        >
-                            1
+                    <div role="tablist" className="tabs tabs-bordered pt-8 flex justify-center">
+                        <a role="tab" className={`tab ${currentPage === 1 ? "tab-active" : ""}`}
+                            onClick={() => handleTabChange(1)}>1
                         </a>
-                        <a
-                            role="tab"
-                            className={`tab ${
-                                currentPage === 2 ? "tab-active" : ""
-                            }`}
-                            onClick={() => handleTabChange(2)}
-                        >
-                            2
+                        <a role="tab" className={`tab ${currentPage === 2 ? "tab-active" : ""}`}
+                            onClick={() => handleTabChange(2)}>2
                         </a>
                     </div>
                 </>

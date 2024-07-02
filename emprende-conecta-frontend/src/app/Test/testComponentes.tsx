@@ -30,6 +30,7 @@ import Collapse from "../../components/Atoms/DataDisplay/Collapse/Collapse";
 import Table from "../../components/Atoms/DataDisplay/Table/Table";
 import { Link as RouterLink } from "react-router-dom";
 import HomePage from "../Homepage/homepage";
+import CardAddProduct from "../../components/Atoms/DataDisplay/Card/CardAddProduct.tsx";
 
 import { ChangeEvent } from "react";
 
@@ -294,7 +295,14 @@ const App: React.FC = () => {
                     <Button text="Ir a HomePage" width="auto" />
                 </RouterLink>
             </div>
-        </div>
-    );
-};
+      <div>
+      <Table data={tableData}/>
+      </div>
+
+      <div>
+      <CardAddProduct image={cardProductData.image} title={cardProductData.title} store="pollo frito" price="S/100" initialQuantity={1} />
+      </div>
+    </div>
+  )
+}
 export default App;
