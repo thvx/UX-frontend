@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import Button from '../../Atoms/Actions/button/button';
 import FormGroup from '../../Organism/formGroup/formGroup';
-import User from '../../../assets/imagenes/iconos/useer.png';
 import Modal from '../../Organism/modal/modal';
 import Mapa from '../../../assets/imagenes/Lima.png';
+import Avatar from '../../Atoms/DataDisplay/Avatar/Avatar';
 
 const RegistroComprador: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -55,10 +55,9 @@ const RegistroComprador: React.FC = () => {
                     </h1>
                     <div className="flex justify-center mb-4">
                         <div className="relative">
-                            <img
-                                src={User}
-                                alt="Profile"
-                                className="rounded-full h-32 w-32"
+                            <Avatar
+                                alt="Foto de perfil de usuario"
+                                size="w-32"
                             />
                             <div className="absolute bottom-0 right-0">
                                 <button className="bg-white rounded-full p-2">
@@ -80,7 +79,7 @@ const RegistroComprador: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="space-y-4 w-full md:w-4/12 mx-auto">
+                    <div className="space-y-4 w-full md:w-4/12 mx-auto flex flex-col items-center">
                         <FormGroup
                             type='text'
                             label=""
@@ -139,7 +138,7 @@ const RegistroComprador: React.FC = () => {
                         Información de contacto
                     </h1>
                     <div className="flex justify-center">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 w-1/2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 w-full sm:w-3/4 lg:w-1/2">
                             <FormGroup
                                 type='tel'
                                 label=""

@@ -5,10 +5,7 @@ import Checkbox from '../../Atoms/Input/checkbox/Checkbox';
 import Modal from '../../Organism/modal/modal';
 import Avatar from '../../Atoms/DataDisplay/Avatar/Avatar';
 import Mapa from '../../../assets/imagenes/Lima.png';
-<<<<<<< HEAD
-=======
 import Radio from '../../Atoms/Input/radio/Radio';
->>>>>>> main
 
 const RegistroVendedorForm: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -26,24 +23,18 @@ const RegistroVendedorForm: React.FC = () => {
 
   const [showModal, setShowModal] = useState<boolean>(false);
 
-<<<<<<< HEAD
-=======
   
->>>>>>> main
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   }
 
-<<<<<<< HEAD
-=======
   const [selected, setSelected] = useState<string>("horario1");
 
   const handleChange = (name: string) => {
     setSelected(name);
   };
 
->>>>>>> main
   const scrollToTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
@@ -211,11 +202,7 @@ const RegistroVendedorForm: React.FC = () => {
                     <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                 </div>
                 <div className="absolute top-36 self-center">
-                <Avatar 
-                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                        alt="Foto de perfil emprendimiento"
-                        size="w-32"
-                    />
+                
                 </div>
             </div>
             <div className="flex flex-row justify-center gap-8">
@@ -260,7 +247,7 @@ const RegistroVendedorForm: React.FC = () => {
           </div>
           <div className="flex flex-col justify-center items-center gap-4">
                 <Avatar 
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+
                     alt="Foto de perfil emprendimiento"
                     size="w-32"
                 />
