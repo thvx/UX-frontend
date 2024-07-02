@@ -14,10 +14,11 @@ class TipoPersona(models.Model):
 
 class Persona(models.Model):
     dni = models.CharField(max_length=20, null=True)
-    ruc = models.CharField(max_length=30, null=True)
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
+    email_recuperacion = models.EmailField(unique=True)
+    password = models.CharField(max_length=128)
     telefono = models.CharField(max_length=20, blank=True, null=True)
     direccion = models.TextField(blank=True, null=True)
     tipo = models.ForeignKey(TipoPersona, on_delete=models.CASCADE)
@@ -40,13 +41,15 @@ class CategoriaEmprendimiento(models.Model):
 
 
 class Emprendimiento(models.Model):
-    nombre = models.CharField(max_length=200)
+    nombre_emprendimiento = models.CharField(max_length=200)
     categoria = models.ForeignKey(CategoriaEmprendimiento, on_delete=models.CASCADE)
     correo = models.EmailField()
     ubicacion = models.TextField()
     presentacion = models.TextField(null=True)
     contacto = models.CharField(max_length=20)
-    persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100)
+    telefono_personal = models.CharField(max_length=20)
 
     def __str__(self):
         return self.nombre
