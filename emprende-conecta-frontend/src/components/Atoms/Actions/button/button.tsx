@@ -7,7 +7,7 @@ type ButtonProps = {
     type?: 'button' | 'submit' | 'reset'; // Tipo del botón
 };
 
-const Button: React.FC<ButtonProps> = ({ text, width, onClick, type = 'button' }) => {
+const Button: React.FC<ButtonProps> = ({ text, width, onClick, type}) => {
     const widthClass = {
         half: 'w-1/2',
         quarter: 'w-1/4',
