@@ -9,6 +9,18 @@ const RegistroComprador: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [showModal, setShowModal] = useState(false);
 
+    const [formData, setFormData] = useState({
+        nombres: '',
+        apellidos: '',
+        dni: '',
+        telefono: '',
+        contrasena: '',
+        correoElectronico: '',
+        confirmarContrasena: '',
+        correoRecuperacion: '',
+        direccion: ''
+    });
+
     const handleNextPage = () => {
         setCurrentPage((prevPage) => prevPage + 1);
         scrollToTop();
@@ -28,10 +40,19 @@ const RegistroComprador: React.FC = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         setShowModal(true);
         scrollToTop();
+        console.log(formData);
     };
 
     return (
