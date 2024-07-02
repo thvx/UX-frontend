@@ -202,11 +202,7 @@ const RegistroVendedorForm: React.FC = () => {
                     <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                 </div>
                 <div className="absolute top-36 self-center">
-                <Avatar 
-                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                        alt="Foto de perfil emprendimiento"
-                        size="w-32"
-                    />
+                
                 </div>
             </div>
             <div className="flex flex-row justify-center gap-8">
@@ -251,7 +247,7 @@ const RegistroVendedorForm: React.FC = () => {
           </div>
           <div className="flex flex-col justify-center items-center gap-4">
                 <Avatar 
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+
                     alt="Foto de perfil emprendimiento"
                     size="w-32"
                 />
