@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.core.validators import MinLengthValidator, RegexValidator
+from django.core.exceptions import ValidationError
 
 # Agregar registros "Emprendedor" y "Vendedor"
 class TipoPersona(models.Model):
@@ -13,13 +14,13 @@ class TipoPersona(models.Model):
 
 
 class Persona(models.Model):
-    dni = models.CharField(max_length=20, null=True)
+    dni = models.CharField(max_length=20, null=True, validators=[RegexValidator(regex=r'^\d{8}$', message="El DNI debe tener 8 dígitos")])
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     email_recuperacion = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)
-    telefono = models.CharField(max_length=20, blank=True, null=True)
+    password = models.CharField(max_length=128, validators=[MinLengthValidator(8)])
+    telefono = models.CharField(max_length=20, blank=True, null=True,validators=[RegexValidator(regex=r'^\d{9}$', message="El teléfono debe tener 9 dígitos")])
     direccion = models.TextField(blank=True, null=True)
     tipo = models.ForeignKey(TipoPersona, on_delete=models.CASCADE)
 
@@ -29,6 +30,9 @@ class Persona(models.Model):
     class Meta:
         db_table = 'persona'
 
+    def clean(self):
+        if self.email == self.email_recuperacion:
+            raise ValidationError("El email de recuperación no puede ser igual al email principal.")
 
 class CategoriaEmprendimiento(models.Model):
     nombre = models.CharField(max_length=50)
