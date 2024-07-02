@@ -6,6 +6,7 @@ import FormGroup from '../../Organism/formGroup/formGroup';
 import logoPagoEfectivo from '../../../assets/imagenes/logo-pagoefectivo 3.png'
 import { useTotalAmount } from '../../../app/Checkout/totalAmountContext';
 import Modal from '../../Organism/modal/modal';
+import { Link } from 'react-router-dom';
 
 interface PagoProps {
   stepsData: {
@@ -50,7 +51,7 @@ const Pago: React.FC<PagoProps> = ({ stepsData, paymentOptions}) => {
   };
 
   const openModal = () => {
-    const modal = document.getElementById('confirmar_compra') as HTMLDialogElement | null;
+    const modal = document.getElementById('confirmar_tarjeta'||'confirmar_compra') as HTMLDialogElement | null;
     modal?.showModal();
 };
 
@@ -103,22 +104,24 @@ const Pago: React.FC<PagoProps> = ({ stepsData, paymentOptions}) => {
                                 placeholder="CVV"
                             />
                         </div>
-                        <Button text='Probar Tarjeta' width='auto' type='button' />
+                        <Button text="Probar Tarjeta" width="auto" type="button" onClick={openModal} />
+                            <Modal 
+                                id="confirmar_tarjeta"
+                                title="Success!" 
+                                message="Su medio de pago fue verificado con con éxito." 
+                                leftButtonText="Regresar" 
+                                rightButtonText="Confirmar Compra"
+                                leftButtonLink='/productosfav'
+                                rightButtonLink='/voucher' 
+                            />
                     </div>
                     <div className="flex flex-row justify-between my-8">
                         <h3 className="text-lg text-white">Total del Pedido</h3>
                         <h3 className="text-lg text-white">S/.{totalAmount.toFixed(2)}</h3>
                     </div>
-                    <Button text="Finalizar compra" width="auto" type="button" onClick={openModal} />
-                    <Modal 
-                        id="confirmar_compra"
-                        title="Success!" 
-                        message="Su medio de pago fue verificado con con éxito." 
-                        leftButtonText="Regresar" 
-                        rightButtonText="Confirmar Compra"
-                        leftButtonLink='/checkout'
-                        rightButtonLink='/voucher' 
-                    />
+                    <Link to="/voucher">
+                        <Button text="Finalizar compra" width="half" type="submit" />
+                    </Link>
                 </div>
             )}
             {selectedOption === 1 && (
@@ -164,16 +167,9 @@ const Pago: React.FC<PagoProps> = ({ stepsData, paymentOptions}) => {
                         <p>Págalo antes de {new Date(paymentDate).toLocaleDateString('es-ES', { weekday: 'long' })}</p>
                         <p>{paymentDate} - 11:59 pm</p>
                     </div>
-                    <Button text="Finalizar compra" width="auto" type="button" onClick={openModal} />
-                    <Modal 
-                        id="confirmar_compra"
-                        title="Success!" 
-                        message="Su medio de pago fue verificado con con éxito." 
-                        leftButtonText="Regresar" 
-                        rightButtonText="Confirmar Compra"
-                        leftButtonLink='/checkout'
-                        rightButtonLink='/voucher' 
-                    />
+                    <Link to="/voucher">
+                        <Button text="Finalizar compra" width="auto" type="submit" />
+                    </Link>
                 </div>
                 )}
             </div>
@@ -188,16 +184,9 @@ const Pago: React.FC<PagoProps> = ({ stepsData, paymentOptions}) => {
                             <p className="text-2xl">S/.{totalAmount}</p>
                         </div>
                     </div>
-                    <Button text="Finalizar compra" width="auto" type="button" onClick={openModal} />
-                    <Modal 
-                        id="confirmar_compra"
-                        title="Success!" 
-                        message="Su medio de pago fue verificado con con éxito." 
-                        leftButtonText="Regresar" 
-                        rightButtonText="Confirmar Compra"
-                        leftButtonLink='/checkout'
-                        rightButtonLink='/voucher' 
-                    />
+                    <Link to="/voucher">
+                        <Button text="Finalizar compra" width="half" type="submit" />
+                    </Link>
                 </div>
             )}
           </form>
