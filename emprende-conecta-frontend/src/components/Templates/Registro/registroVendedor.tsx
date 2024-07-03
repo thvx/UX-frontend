@@ -18,10 +18,14 @@ const RegistroVendedorForm: React.FC = () => {
     whatsapp: '',
     nombres: '',
     apellidos: '',
+    contraseña: '',
     telefono: '',
   });
 
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const openModal = () => {
+    const modal = document.getElementById('my_modal_1') as HTMLDialogElement | null;
+    modal?.showModal();
+};    
 
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -44,113 +48,94 @@ const RegistroVendedorForm: React.FC = () => {
     scrollToTop();
   };
 
-  const handlePreviousPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
-    scrollToTop();
-  };
-
   const handleTabChange = (page: number) => {
     setCurrentPage(page);
     scrollToTop();
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    setShowModal(true);
-    scrollToTop();
-  };
 
   return (
-    <form className="h-full p-4 flex flex-col mb-40" onSubmit={handleSubmit}>
-      {showModal && (
-        <Modal 
-          id="my_modal_1"
-          title="¡REGISTRO EXITOSO!" 
-          message="Sus datos y el de su emprendimiento se han registrado correctamente" 
-          leftButtonText="Iniciar" 
-          rightButtonText="Guía Rápida" 
-        />
-      )}
+    <form className="h-full p-4 flex flex-col mb-40">
       {currentPage === 1 && (
         <>
-          <div className="flex justify-center items-center">
-              <h1 className="text-2xl font-bold text-custom-yellow mb-4 p-12 pb-4">Datos básicos</h1>
+          <div className="flex flex-col">
+              <h1 className="text-2xl font-bold text-custom-yellow text-center mb-4 py-6">Datos básicos</h1>
           </div>
           <div className="flex lg:flex-row md:flex-row flex-col lg:gap-24 md:gap-24 justify-center px-12 mb-12">
-            <div className="flex flex-col gap-8 w-full max-w-80">
-            <FormGroup 
-                type='text'
-                label="Nombre" 
-                placeholder="Nombre del emprendimiento" 
-                required 
-                value={formData.nombre} 
-                onChange={handleInputChange} 
-                name="nombre" 
-              />
+            <div className="flex flex-col gap-4 w-full max-w-80">
               <FormGroup 
-                label="Contacto" 
-                type='email'
-                placeholder="Correo electrónico" 
-                required 
-                value={formData.correo} 
-                onChange={handleInputChange} 
-                name="correo" 
-              />
-              <div className="form-control mb-4">
-                <FormGroup 
-                  label="Presentación" 
-                  type='textarea'
-                  placeholder="Lo mejor para tu negocio digital. Detalles que conectan" 
+                  type='text'
+                  label="Nombre" 
+                  placeholder="Nombre del emprendimiento" 
                   required 
-                  value={formData.presentacion} 
+                  value={formData.nombre} 
                   onChange={handleInputChange} 
-                  name="presentacion" 
+                  name="nombre" 
                 />
-                <p className="text-sm text-custom-yellow pt-2">Describa de qué trata su emprendimiento</p>
-              </div>
-              <div className="mt-4"> {/* Asegúrate de agregar margen o padding según sea necesario */}
-    <h3 className="text-lg font-bold text-white mb-2">Horario de atención</h3>
-    <ul>
-        <li className="flex items-center mb-2">
-            <Radio
-                radioType="radio-accent"
-                isDisabled={false}
-                isChecked={selected === "horario1"} // Ajusta según la lógica de selección
-                size="radio-md"
-                name="horario1"
-                text="Horario no disponible. No mostrar el horario"
-                marginRight="mr-2"
-                onChange={() => handleChange("horario1")} // Define la función de manejo de cambios
-            />
-        </li>
-        <li className="flex items-center mb-2">
-            <Radio
-                radioType="radio-accent"
-                isDisabled={false}
-                isChecked={selected === "horario2"} // Ajusta según la lógica de selección
-                size="radio-md"
-                name="horario2"
-                text="Siempre abierto. El lugar está abierto las 24h"
-                marginRight="mr-2"
-                onChange={() => handleChange("horario2")} // Define la función de manejo de cambios
-            />
-        </li>
-        <li className="flex items-center mb-2">
-            <Radio
-                radioType="radio-accent"
-                isDisabled={false}
-                isChecked={selected === "horario3"} // Ajusta según la lógica de selección
-                size="radio-md"
-                name="horario3"
-                text="Horario habitual. Ingresa un horario específico"
-                marginRight="mr-2"
-                onChange={() => handleChange("horario3")} // Define la función de manejo de cambios
-            />
-        </li>
-    </ul>
-</div>
+                <FormGroup 
+                  label="Contacto" 
+                  type='email'
+                  placeholder="Correo electrónico" 
+                  required 
+                  value={formData.correo} 
+                  onChange={handleInputChange} 
+                  name="correo" 
+                />
+                <div className="form-control mb-4">
+                  <FormGroup 
+                    label="Presentación" 
+                    type='textarea'
+                    placeholder="Lo mejor para tu negocio digital. Detalles que conectan" 
+                    required 
+                    value={formData.presentacion} 
+                    onChange={handleInputChange} 
+                    name="presentacion" 
+                  />
+                  <p className="text-sm text-custom-yellow pt-2">Describa de qué trata su emprendimiento</p>
+                </div>
+                <div className="mt-4">
+                  <h3 className="text-lg font-bold text-white mb-2">Horario de atención</h3>
+                  <ul>
+                      <li className="flex items-center mb-2">
+                          <Radio
+                              radioType="radio-accent"
+                              isDisabled={false}
+                              isChecked={selected === "horario1"}
+                              size="radio-md"
+                              name="horario1"
+                              text="Horario no disponible. No mostrar el horario"
+                              marginRight="mr-2"
+                              onChange={() => handleChange("horario1")}
+                          />
+                      </li>
+                      <li className="flex items-center mb-2">
+                          <Radio
+                              radioType="radio-accent"
+                              isDisabled={false}
+                              isChecked={selected === "horario2"}
+                              size="radio-md"
+                              name="horario2"
+                              text="Siempre abierto. El lugar está abierto las 24h"
+                              marginRight="mr-2"
+                              onChange={() => handleChange("horario2")}
+                          />
+                      </li>
+                      <li className="flex items-center mb-2">
+                          <Radio
+                              radioType="radio-accent"
+                              isDisabled={false}
+                              isChecked={selected === "horario3"}
+                              size="radio-md"
+                              name="horario3"
+                              text="Horario habitual. Ingresa un horario específico"
+                              marginRight="mr-2"
+                              onChange={() => handleChange("horario3")}
+                          />
+                      </li>
+                  </ul>
+                </div>
             </div>
-            <div className="flex flex-col gap-8 w-full max-w-80">
+            <div className="flex flex-col gap-4 w-full max-w-80">
               <FormGroup
                 type='text'
                 label="Categoría" 
@@ -182,7 +167,7 @@ const RegistroVendedorForm: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-col items-center justify-center pt-12">
-            <Button text="Siguiente" width="auto" onClick={handleNextPage} type="button"/>
+            <Button text="Siguiente" width="quarter" onClick={handleNextPage} type="button"/>
             <div role="tablist" className="tabs tabs-bordered pt-8">
               <a role="tab" className={`tab ${currentPage === 1 ? 'tab-active' : ''}`} onClick={() => handleTabChange(1)}>1</a>
               <a role="tab" className={`tab ${currentPage === 2 ? 'tab-active' : ''}`} onClick={() => handleTabChange(2)}>2</a>
@@ -202,11 +187,7 @@ const RegistroVendedorForm: React.FC = () => {
                     <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                 </div>
                 <div className="absolute top-36 self-center">
-                <Avatar 
-                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                        alt="Foto de perfil emprendimiento"
-                        size="w-32"
-                    />
+                
                 </div>
             </div>
             <div className="flex flex-row justify-center gap-8">
@@ -234,7 +215,7 @@ const RegistroVendedorForm: React.FC = () => {
                 </div> 
             </div>
             <div className="flex flex-col items-center justify-center pt-12">
-                <Button text="Siguiente" width="auto" onClick={handleNextPage} type="button"/>
+                <Button text="Siguiente" width="half" onClick={handleNextPage} type="button"/>
                 <div role="tablist" className="tabs tabs-bordered pt-8">
                 <a role="tab" className={`tab ${currentPage === 1 ? 'tab-active' : ''}`} onClick={() => handleTabChange(1)}>1</a>
                 <a role="tab" className={`tab ${currentPage === 2 ? 'tab-active' : ''}`} onClick={() => handleTabChange(2)}>2</a>
@@ -251,7 +232,6 @@ const RegistroVendedorForm: React.FC = () => {
           </div>
           <div className="flex flex-col justify-center items-center gap-4">
                 <Avatar 
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                     alt="Foto de perfil emprendimiento"
                     size="w-32"
                 />
@@ -276,18 +256,37 @@ const RegistroVendedorForm: React.FC = () => {
                     name="apellidos" 
                 />
                 <FormGroup 
+                    type='password'
+                    label="Contraseña" 
+                    size='lg'
+                    placeholder="Contraseña" 
+                    required 
+                    value={formData.contraseña} 
+                    onChange={handleInputChange} 
+                    name="contraseña" 
+                />
+                <FormGroup 
                     label="Teléfono personal" 
                     type='tel'
                     size='lg'
                     placeholder="Teléfono personal" 
-                    required 
+                    required  
                     value={formData.telefono} 
                     onChange={handleInputChange} 
                     name="telefono" 
                 />
             </div>
             <div className="flex flex-col items-center justify-center pt-12">
-              <Button text="Registrar" width="auto" type="submit"/>
+              <Button text="Registrar" width="quarter" type="submit" onClick={openModal}/>
+              <Modal
+                id="my_modal_1"
+                title="¡REGISTRO EXITOSO!"
+                message="Sus datos y el de su emprendimiento se han registrado correctamente"
+                leftButtonText="Ir a mi perfil"
+                rightButtonText="Explorar productos"
+                leftButtonLink='/perfil/usuario'
+                rightButtonLink='/dashboard'
+              />
               <div role="tablist" className="tabs tabs-bordered pt-8">
                 <a role="tab" className={`tab ${currentPage === 1 ? 'tab-active' : ''}`} onClick={() => handleTabChange(1)}>1</a>
                 <a role="tab" className={`tab ${currentPage === 2 ? 'tab-active' : ''}`} onClick={() => handleTabChange(2)}>2</a>

@@ -2,12 +2,13 @@ import React from "react";
 
 type LinkProps = {
     title: string,
+    url: string;
 }
 
-const Link: React.FC<LinkProps> = ({title}) => {
+const Link: React.FC<LinkProps> = ({title, url}) => {
     return(
         <>
-            <a className="text-white hover:underline hover:cursor-pointer capitalize">
+            <a href={url} className="text-white hover:underline hover:cursor-pointer capitalize">
                 {title}
             </a>
         </>

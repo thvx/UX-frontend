@@ -2,6 +2,7 @@ import ProductImage from "../../../assets/imagenes/zapatilla.png";
 import Button2 from "../../Atoms/Actions/button2/button2";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { BsSend } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const ProductDetailsTemplate = () => {
     return (
@@ -29,19 +30,23 @@ const ProductDetailsTemplate = () => {
                 </div>
                 <div className=" flex flex-col md:flex-row w-full  gap-10  p-10 items-center">
                     <div className="flex  w-full gap-1 md:gap-10 items-center   flex-row justify-between">
-                        <Button2
-                            styles="w-max md:w-full rounded-lg"
-                            variant="yellow"
-                            type="button"
-                            text="Tienda"
-                        />
-                        <Button2
-                            styles="w-max md:w-full rounded-lg"
-                            variant="yellow"
-                            type="button"
-                            icon={<BsSend />}
-                            text="Ir al chat"
-                        />
+                        <Link to="/perfil/negocio">
+                            <Button2
+                                styles="w-max md:w-full rounded-lg"
+                                variant="yellow"
+                                type="button"
+                                text="Tienda"
+                            />
+                        </Link>
+                        <Link to="/mensaje">
+                            <Button2
+                                styles="w-max md:w-full rounded-lg"
+                                variant="yellow"
+                                type="button"
+                                icon={<BsSend />}
+                                text="Ir al chat"
+                            />
+                        </Link>
                     </div>
                     <div className="flex w-full  md:gap-10 flex-row justify-between items-center">
                         <p className="text-white">
@@ -51,13 +56,15 @@ const ProductDetailsTemplate = () => {
                                 S/.230.00
                             </span>
                         </p>
-                        <Button2
-                            styles="w-max md:w-full rounded-lg"
-                            variant="yellow"
-                            type="button"
-                            icon={<RiShoppingCartFill />}
-                            text="Añadir al carrito"
-                        />
+                        <Link to="/checkout">
+                            <Button2
+                                styles="w-max md:w-full rounded-lg"
+                                variant="yellow"
+                                type="button"
+                                icon={<RiShoppingCartFill />}
+                                text="Añadir al carrito"
+                            />
+                        </Link>
                     </div>
                 </div>
             </div>

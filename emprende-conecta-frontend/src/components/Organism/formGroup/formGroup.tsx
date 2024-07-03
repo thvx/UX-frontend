@@ -6,14 +6,16 @@ import TextInputSearch from "../../Atoms/Input/text/TextInputSearch";
 import TextInputUsername from "../../Atoms/Input/text/TextInputUsername";
 import TextInputTel from "../../Atoms/Input/text/TextInputTel";
 import TextArea from "../../Atoms/Input/textarea/Textarea";
+import TextInputCardNumber from "../../Atoms/Input/text/TextInputCardNumber";
+import TextInputDate from "../../Atoms/Input/text/TextInputDate";
 
 type FormGroupProps = {
     label: string,
     isDisabled?: boolean,
-    type: 'text' | 'email' | 'password' | 'search' | 'username' | 'textarea' | 'tel',
+    type: 'text' | 'email' | 'password' | 'search' | 'username' | 'textarea' | 'tel' | 'cardNumber' | 'date',
     inputType?: 'input-primary' | 'input-secondary' | 'input-accent' | 'input-success' | 'input-warning' | 'input-info' | 'input-error',
     placeholder: string,
-    size?: 'xs' | 'sm' | 'md' | 'lg';
+    size?: 'xs' | 'sm' | 'md' | 'lg',
     required?: boolean,
     name?: string,
     value?: string,
@@ -33,7 +35,7 @@ const FormGroup: React.FC<FormGroupProps> = ({
     onChange
 }) => {
 
-    const selectInputComponent = (type: string) => {
+    const selectInputComponent = (type: string): React.ElementType | null => {
         switch(type) {
             case 'text':
                 return TextInput;
@@ -49,6 +51,12 @@ const FormGroup: React.FC<FormGroupProps> = ({
                 return TextInputTel;
             case 'textarea':
                 return TextArea;
+            case 'cardNumber':
+                return TextInputCardNumber;
+            case 'date':
+                return TextInputDate;
+            default:
+                return TextInput;
         }
     }
 
