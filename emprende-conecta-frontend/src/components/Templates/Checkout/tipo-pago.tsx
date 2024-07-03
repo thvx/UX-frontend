@@ -72,7 +72,7 @@ const Pago: React.FC<PagoProps> = ({ stepsData, paymentOptions}) => {
                         onChange={() => handleOptionChange(index)}
                     />
                     <div className="flex flex-row ml-2 gap-4">
-                        <img src={option.img}></img>
+                        <img src={option.img} className="h-10 w-10"></img>
                         <span className="font-bold">{option.type}</span>
                     </div>
                 </div>
@@ -85,7 +85,7 @@ const Pago: React.FC<PagoProps> = ({ stepsData, paymentOptions}) => {
                     <div className="flex flex-col justify-center mb-8 bg-sky-500/[.06] ... p-6 text-white py-4 px-8 rounded-2xl">
                         <h2 className="text-white text-xl text-center font-bold p-6">Tarjeta de Crédito o Débito</h2>
                         <FormGroup
-                            type='cardNumber'
+                            type='text'
                             label=""
                             name="cardNumber"
                             placeholder="N° de tarjeta"
@@ -110,7 +110,7 @@ const Pago: React.FC<PagoProps> = ({ stepsData, paymentOptions}) => {
                                 title="Success!" 
                                 message="Su medio de pago fue verificado con con éxito." 
                                 leftButtonText="Regresar" 
-                                rightButtonText="Confirmar Compra"
+                                rightButtonText="Confirmar Tarjeta"
                                 leftButtonLink='/productosfav'
                                 rightButtonLink='/voucher' 
                             />
@@ -179,7 +179,7 @@ const Pago: React.FC<PagoProps> = ({ stepsData, paymentOptions}) => {
                     <h2 className="text-white text-xl text-center font-bold p-6">Pago Contraentrega</h2>
                     <p className="text-white">Recuerda tener el monto listo al momento de recoger tu pedido</p>
                     <div className="flex flex-col my-6">
-                        <div className="bg-custom-lightgrey p-6 rounded-2xl text-black text-center w-3/5 self-center">
+                        <div className="bg-blue-200 p-6 rounded-2xl text-black text-center w-3/5 self-center">
                             <p className="text-2xl font-bold">Monto a pagar</p>
                             <p className="text-2xl">S/.{totalAmount}</p>
                         </div>

@@ -15,7 +15,7 @@ type CardProductosProps = {
 const CardProductos: React.FC<CardProductosProps> = ({ image, title, description, badges, isNew, extraClasses }) => {
     return (
       <div className={`card sm:w-64 sm:max-w-64 shadow-xl ${extraClasses}`}>
-        <figure><img src={image} alt={title} /></figure>
+        <figure><a href="/productdetails"><img src={image} alt={title} /></a></figure>
         <div className="card-body">
           <h2 className="card-title font-bold text-xl¿">
             {title}

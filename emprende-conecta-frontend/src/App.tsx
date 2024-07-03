@@ -13,6 +13,7 @@ import Homepage from './app/Homepage/homepage'
 import Perfilusuario from './app/Perfilusuario/perfilusuario'
 import ProductosFav from './app/Productosfav/Productos'
 import ProductDetailsPage from './app/ProductDetailsPage/productdetailspage'
+import Mensaje from './app/Mensaje/mensaje'
 import { TotalAmountProvider } from './app/Checkout/totalAmountContext'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/perfil/usuario" element={<Perfilusuario />} />
           <Route path='/favoritos' element={<ProductosFav />} />
           <Route path='/productdetails' element={<ProductDetailsPage />} />
+          <Route path='/mensaje' element={<Mensaje />} />
       </Routes>
       </BrowserRouter>
       </TotalAmountProvider>

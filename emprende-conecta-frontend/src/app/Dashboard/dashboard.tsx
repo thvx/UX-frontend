@@ -1,4 +1,4 @@
-import Menu from '../../components/Atoms/Navigation/menu/menu';
+import Sidebar from '../../components/Organism/Siderbar/Sidebar';
 import Dashboard from '../../components/Templates/Dashboard/dashboard'
 import Footer from '../../components/Organism/footer/footer';
 import React, { useState, useEffect } from 'react';
@@ -35,15 +35,22 @@ const App: React.FC = () => {
                     ],
                     cardsData: [
                         {
+                          image: "https://cf.shopee.com.co/file/7e2257b27f594431ce9cebe8f6ae6214_tn",
+                          title: "Producto 1",
+                          description: "S/.230.00",
+                          badges: ["Nuevo", "Popular"],
+                          isNew: true,
+                        },
+                        {
                             image: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg",
-                            title: "Producto 1",
+                            title: "Producto 2",
                             description: "S/.230.00",
                             badges: ["Nuevo", "Popular"],
                             isNew: true,
                           },
                           {
                             image: "https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg",
-                            title: "Producto 2",
+                            title: "Producto 3",
                             description: "S/.140.00",
                             badges: ["Recomendado"],
                             isNew: false,
@@ -82,11 +89,9 @@ const App: React.FC = () => {
 
   return (
     <div className="app-container h-min-screen flex-grow bg-custom-blue flex flex-col">
-      <div className="flex flex-1">
-        <aside className="fixed top-16 left-0 h-full z-20">
-          <Menu variant="style1" />
-        </aside>
-        <main className="main-content flex-1 ml-8 p-4">
+      <div className="flex">
+        <Sidebar />
+        <main className="main-content ml-8 p-4">
           <Dashboard tableResults={tableResults} cardsData={cardsData} />
         </main>
       </div>
