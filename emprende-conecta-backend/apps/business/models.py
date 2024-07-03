@@ -50,9 +50,10 @@ class Emprendimiento(models.Model):
     correo = models.EmailField()
     ubicacion = models.TextField()
     presentacion = models.TextField(null=True)
-    contacto = models.CharField(max_length=20)
+    telefono_contacto = models.CharField(max_length=20)
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
+    password = models.CharField(max_length=128, validators=[MinLengthValidator(8)])
     telefono_personal = models.CharField(max_length=20)
 
     def __str__(self):

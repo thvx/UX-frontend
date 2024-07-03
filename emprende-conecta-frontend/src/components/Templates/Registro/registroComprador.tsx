@@ -7,15 +7,6 @@ import Avatar from '../../Atoms/DataDisplay/Avatar/Avatar';
 
 const RegistroComprador: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [formData, setFormData] = useState({
-        nombres: '',
-        apellidos: '',
-        dni: '',
-        telefono: '',
-        contrasena: '',
-        correo: '',
-        direccion: ''
-      });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
         const { name, value } = e.target;
