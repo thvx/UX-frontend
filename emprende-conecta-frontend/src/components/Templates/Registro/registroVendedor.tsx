@@ -18,6 +18,7 @@ const RegistroVendedorForm: React.FC = () => {
     whatsapp: '',
     nombres: '',
     apellidos: '',
+    contraseña: '',
     telefono: '',
   });
 
@@ -253,6 +254,16 @@ const RegistroVendedorForm: React.FC = () => {
                     value={formData.apellidos} 
                     onChange={handleInputChange} 
                     name="apellidos" 
+                />
+                <FormGroup 
+                    type='password'
+                    label="Contraseña" 
+                    size='lg'
+                    placeholder="Contraseña" 
+                    required 
+                    value={formData.contraseña} 
+                    onChange={handleInputChange} 
+                    name="contraseña" 
                 />
                 <FormGroup 
                     label="Teléfono personal" 
