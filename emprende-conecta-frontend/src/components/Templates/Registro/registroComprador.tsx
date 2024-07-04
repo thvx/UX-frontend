@@ -4,6 +4,7 @@ import FormGroup from '../../Organism/formGroup/formGroup';
 import Modal from '../../Organism/modal/modal';
 import Mapa from '../../../assets/imagenes/Lima.png';
 import Avatar from '../../Atoms/DataDisplay/Avatar/Avatar';
+import {crearPersona} from './registro.api';
 
 const RegistroComprador: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -17,7 +18,8 @@ const RegistroComprador: React.FC = () => {
         nuevaContrasena: '',
         correo: '',
         correoRecuperacion: '',
-        direccion: ''
+        direccion: '',
+        tipo: 1
     });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -29,7 +31,15 @@ const RegistroComprador: React.FC = () => {
         event.preventDefault();
         const modal = document.getElementById('my_modal_1') as HTMLDialogElement | null;
         modal?.showModal();
-        console.log(formData)
+        const registrarPersona = async () => {
+            try {
+                const response = await crearPersona(formData);
+                console.log('Success:', response.data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+        registrarPersona();
     };    
 
     const handleNextPage = () => {
