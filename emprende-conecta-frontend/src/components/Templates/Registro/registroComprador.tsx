@@ -8,16 +8,6 @@ import Avatar from '../../Atoms/DataDisplay/Avatar/Avatar';
 const RegistroComprador: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
-    const openModal = () => {
-        const modal = document.getElementById('my_modal_1') as HTMLDialogElement | null;
-        modal?.showModal();
-    };    
-
     const [formData, setFormData] = useState({
         nombres: '',
         apellidos: '',
@@ -29,6 +19,18 @@ const RegistroComprador: React.FC = () => {
         correoRecuperacion: '',
         direccion: ''
     });
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const openModal = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        event.preventDefault();
+        const modal = document.getElementById('my_modal_1') as HTMLDialogElement | null;
+        modal?.showModal();
+        console.log(formData)
+    };    
 
     const handleNextPage = () => {
         setCurrentPage((prevPage) => prevPage + 1);
