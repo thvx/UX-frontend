@@ -2,6 +2,15 @@ from rest_framework import serializers
 from apps.business.models import Persona, TipoPersona, CategoriaEmprendimiento, Emprendimiento
 
 class PersonaSerializer (serializers.ModelSerializer):
+    dni = serializers.CharField
+    nombre = serializers.CharField(source='nombres')
+    apellido = serializers.CharField(source='apellidos')
+    email = serializers.EmailField(source='correo')
+    email_recuperacion = serializers.EmailField(source='correoRecuperacion')
+    telefono = serializers.CharField
+    direccion = serializers.CharField
+    tipo = serializers.PrimaryKeyRelatedField( queryset=TipoPersona.objects.all())
+
     class Meta:
         model = Persona
         fields = '__all__'

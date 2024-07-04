@@ -18,5 +18,5 @@ interface Persona {
 }
 
 export const crearPersona = (persona: Persona): Promise<AxiosResponse<Persona>> => {
-    return registroApi.post<Persona>('/', persona);
+    return registroApi.post<Persona>('/persona/', persona);
 };
