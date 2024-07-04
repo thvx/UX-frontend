@@ -13,7 +13,9 @@ const RegistroComprador: React.FC = () => {
         dni: '',
         telefono: '',
         contrasena: '',
+        nuevaContrasena: '',
         correo: '',
+        correoRecuperacion: '',
         direccion: ''
       });
 
@@ -99,7 +101,7 @@ const RegistroComprador: React.FC = () => {
                             size='lg'
                             placeholder="DNI"
                             required 
-                            value={formData.telefono} 
+                            value={formData.dni} 
                             onChange={handleInputChange}
                             name="dni"
                          />
@@ -147,7 +149,7 @@ const RegistroComprador: React.FC = () => {
                             />
                             <FormGroup
                                 label="Correo Electrónico"
-                                name="correoElectronico"
+                                name="correo"
                                 placeholder="Correo electrónico"
                                 type='email'
                                 required 
@@ -156,11 +158,11 @@ const RegistroComprador: React.FC = () => {
                             />
                             <FormGroup
                                 label="Confirmar Contraseña"
-                                name="confirmarContrasena"
+                                name="nuevaContrasena"
                                 placeholder="Confirmar contraseña"
                                 type='password'
                                 required 
-                                value={formData.contrasena} 
+                                value={formData.nuevaContrasena} 
                                 onChange={handleInputChange}
                             />
                             <FormGroup
@@ -169,7 +171,7 @@ const RegistroComprador: React.FC = () => {
                                 placeholder="Correo de recuperación"
                                 type='email'
                                 required 
-                                value={formData.correo} 
+                                value={formData.correoRecuperacion} 
                                 onChange={handleInputChange}
                             />
                             <FormGroup
