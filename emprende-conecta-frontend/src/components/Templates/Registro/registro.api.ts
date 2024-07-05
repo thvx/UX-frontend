@@ -5,14 +5,14 @@ const registroApi: AxiosInstance = axios.create({
 });
 
 interface Persona {
-    nombres: string,
-    apellidos: string,
+    nombre: string,
+    apellido: string,
     dni: string,
     telefono: string,
-    contrasena: string,
+    password: string,
     nuevaContrasena: string,
-    correo: string,
-    correoRecuperacion: string,
+    email: string,
+    email_recuperacion: string,
     direccion: string,
     tipo: number
 }
