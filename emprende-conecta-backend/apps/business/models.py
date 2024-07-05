@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.core.validators import MinLengthValidator, RegexValidator
+from django.core.exceptions import ValidationError
 
 # Agregar registros "Emprendedor" y "Vendedor"
 class TipoPersona(models.Model):
@@ -13,12 +14,13 @@ class TipoPersona(models.Model):
 
 
 class Persona(models.Model):
-    dni = models.CharField(max_length=20, null=True)
-    ruc = models.CharField(max_length=30, null=True)
+    dni = models.CharField(max_length=20, null=True, validators=[RegexValidator(regex=r'^\d{8}$', message="El DNI debe tener 8 dígitos")])
     nombre = models.CharField(max_length=100)
-    apellido = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField(unique=True)
-    telefono = models.CharField(max_length=20, blank=True, null=True)
+    email_recuperacion = models.EmailField(unique=True, null=True)
+    password = models.CharField(max_length=128, validators=[MinLengthValidator(8)], null=True)
+    telefono = models.CharField(max_length=20, blank=True, null=True,validators=[RegexValidator(regex=r'^\d{9}$', message="El teléfono debe tener 9 dígitos")])
     direccion = models.TextField(blank=True, null=True)
     tipo = models.ForeignKey(TipoPersona, on_delete=models.CASCADE)
 
@@ -28,6 +30,9 @@ class Persona(models.Model):
     class Meta:
         db_table = 'persona'
 
+    def clean(self):
+        if self.email == self.email_recuperacion:
+            raise ValidationError("El email de recuperación no puede ser igual al email principal.")
 
 class CategoriaEmprendimiento(models.Model):
     nombre = models.CharField(max_length=50)
@@ -40,13 +45,16 @@ class CategoriaEmprendimiento(models.Model):
 
 
 class Emprendimiento(models.Model):
-    nombre = models.CharField(max_length=200)
+    nombre_emprendimiento = models.CharField(max_length=200, null=True)
     categoria = models.ForeignKey(CategoriaEmprendimiento, on_delete=models.CASCADE)
     correo = models.EmailField()
     ubicacion = models.TextField()
     presentacion = models.TextField(null=True)
-    contacto = models.CharField(max_length=20)
-    persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    telefono_contacto = models.CharField(max_length=20, null=True)
+    nombre = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100, null=True)
+    password = models.CharField(max_length=128, validators=[MinLengthValidator(8)], null=True)
+    telefono_personal = models.CharField(max_length=20, null=True)
 
     def __str__(self):
         return self.nombre
