@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,6 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-(l(^=6&rjtt^nz+*=1+n-!7nsto)5p8apq=n&h$+hwdj(sv%e='
+
+MEDIA_URL = ''
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,7 +45,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     "apps.auth",
-    'apps.business'
+    'apps.business',
+    'apps.products'
 ]
 
 MIDDLEWARE = [
