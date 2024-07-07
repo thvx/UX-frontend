@@ -1,11 +1,10 @@
-import ProductImage from "../../../assets/imagenes/zapatilla.png";
 import Button2 from "../../Atoms/Actions/button2/button2";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { BsSend } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { Product } from "../../../api/products";
 
-const ProductDetailsTemplate: React.FC<Product> = ({ image, name, description, price, product_tags }) => {
+const ProductDetailsTemplate: React.FC<Product> = ({ image, name, description, price }) => {
     return (
         <div className="grid place-items-center bg-custom-blue h-dvh">
             <div className="flex flex-col   items-center ">

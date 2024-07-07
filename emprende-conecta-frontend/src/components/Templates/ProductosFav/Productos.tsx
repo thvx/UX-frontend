@@ -31,43 +31,6 @@ function Producto() {
     
         fetchProducts();
       }, []);
-
-    // const productos = [
-    //     {
-    //         id: 1,
-    //         imagen:
-    //             "https://oechsle.vteximg.com.br/arquivos/ids/17298402-1000-1000/imageUrl_1.jpg?v=638418759863570000",
-    //         nombre: "Camisa estampada",
-    //         precio: 25.99,
-    //     },
-    //     {
-    //         id: 2,
-    //         imagen: "https://i.ebayimg.com/images/g/7AEAAOSwhm9iNzkR/s-l500.jpg",
-    //         nombre: "Zapatos deportivos",
-    //         precio: 59.99,
-    //     },
-    //     {
-    //         id: 3,
-    //         imagen:
-    //             "https://portape.vtexassets.com/arquivos/ids/162317/0000010496--1-.jpg?v=638089668629600000",
-    //         nombre: "Mochila azul",
-    //         precio: 35.99,
-    //     },
-    //     {
-    //         id: 4,
-    //         imagen:
-    //             "https://promart.vteximg.com.br/arquivos/ids/7544937-1000-1000/image-caf1e09de32d46c292d97edd29f56bd7.jpg?v=638335007876000000",
-    //         nombre: "Auriculares inalámbricos",
-    //         precio: 89.99,
-    //     },
-    //     {
-    //         id: 5,
-    //         imagen:
-    //             "https://promart.vteximg.com.br/arquivos/ids/7118854-1000-1000/image-526c21fcc2fc40c49ca858cbfb26954d.jpg?v=638223677021000000",
-    //         nombre: "Reloj inteligente",
-    //         precio: 199.99,
-    //     },
-    // ];
     return (
         <div className='flex gap-3 flex-wrap '>
             {items.map((producto) => (

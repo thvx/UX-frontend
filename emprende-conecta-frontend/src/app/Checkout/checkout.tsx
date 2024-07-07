@@ -28,13 +28,6 @@ const App: React.FC = () => {
       } catch (error) {
           console.error('Error fetching data:', error);
       }
-
-      // const productData = [
-      //   { img: 'https://falabella.scene7.com/is/image/FalabellaPE/gsc_125437823_4308770_1?wid=800&hei=800&qlt=70', title: 'Zapatillas Deportivas', store: 'Zapatería Pedro', price: 'S/ 259.90', quantity: 1 },
-      //   { img: 'https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg', title: 'Cono de Helado', store: 'Heladería Pedrito', price: 'S/ 20.00', quantity: 2 },
-      //   { img: 'https://promart.vteximg.com.br/arquivos/ids/7118854-1000-1000/image-526c21fcc2fc40c49ca858cbfb26954d.jpg?v=638223677021000000', title: 'Reloj Inteligente', store: 'Compucentro', price: 'S/ 99.90', quantity: 3 }
-      // ];
-      // setProducts(productData);
       
       const deliveryData = [
         { type: 'Retiro en Tienda', address: 'Tienda X', amount: 'Gratis' },

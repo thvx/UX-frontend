@@ -26,25 +26,6 @@ export interface Product {
   const handleAxiosError = (error: AxiosError<ErrorResponse>): string => {
     return error.response?.data?.message || error.message;
   };
-  
-
-// export const getProductsRequest = async (): Promise<Product[]> => {
-//     try {
-//         const response = await productInstance.get<Product[]>('/');
-//         return response.data.data;
-//     } catch (error) {
-//         throw new Error(handleAxiosError(error as AxiosError<ErrorResponse>));
-//     }
-// };
-
-// export const getProductsByIdRequest = async (id: string): Promise<Product> => {
-//     try {
-//         const response = await productInstance.get<Product>(`/${id}`);
-//         return response.data;
-//     } catch (error) {
-//         throw new Error(handleAxiosError(error as AxiosError<ErrorResponse>));
-//     }
-// };
 
 export const getProductsRequest = async (): Promise<Product[]> => {
     try {
