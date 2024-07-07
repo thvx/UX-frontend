@@ -12,7 +12,7 @@ import TextInputDate from "../../Atoms/Input/text/TextInputDate";
 type FormGroupProps = {
     label: string,
     isDisabled?: boolean,
-    type: 'text' | 'email' | 'password' | 'search' | 'username' | 'textarea' | 'tel' | 'cardNumber' | 'date',
+    type: 'text' | 'email' | 'password' | 'search' | 'username' | 'textarea' | 'tel' | 'cardNumber' | 'date' | 'number',
     inputType?: 'input-primary' | 'input-secondary' | 'input-accent' | 'input-success' | 'input-warning' | 'input-info' | 'input-error',
     placeholder: string,
     size?: 'xs' | 'sm' | 'md' | 'lg',

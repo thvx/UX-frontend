@@ -17,6 +17,23 @@ interface Persona {
     tipo: number
 }
 
+interface Emprendimiento {
+    nombre_emprendimiento: string,
+    categoria: number,
+    correo: string,
+    ubicacion: string,
+    presentacion: string,
+    telefono_contacto: string,
+    nombre: string,
+    apellido: string,
+    password: string,
+    telefono_personal: string
+}
+
 export const crearPersona = (persona: Persona): Promise<AxiosResponse<Persona>> => {
     return registroApi.post<Persona>('/persona/', persona);
+};
+
+export const crearEmprendimiento = (emprendimiento: Emprendimiento): Promise<AxiosResponse<Emprendimiento>> => {
+    return registroApi.post<Emprendimiento>('/emprendimiento/', emprendimiento);
 };

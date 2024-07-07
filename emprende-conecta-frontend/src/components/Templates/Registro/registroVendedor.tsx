@@ -6,26 +6,44 @@ import Modal from '../../Organism/modal/modal';
 import Avatar from '../../Atoms/DataDisplay/Avatar/Avatar';
 import Mapa from '../../../assets/imagenes/Lima.png';
 import Radio from '../../Atoms/Input/radio/Radio';
+import {crearEmprendimiento} from './registro.api'
 
 const RegistroVendedorForm: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [formData, setFormData] = useState({
-    nombre: '',
+    nombre_emprendimiento: '',
+    categoria: 1,
     correo: '',
-    presentacion: '',
-    categoria: '',
     ubicacion: '',
-    whatsapp: '',
-    nombres: '',
-    apellidos: '',
-    contraseña: '',
-    telefono: '',
+    presentacion: '',
+    telefono_contacto: '',
+    nombre: '',
+    apellido: '',
+    password: '',
+    telefono_personal: ''
   });
 
-  const openModal = () => {
+  const openModal = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
     const modal = document.getElementById('my_modal_1') as HTMLDialogElement | null;
     modal?.showModal();
-};    
+    const registrarEmprendimiento = async () => {
+      try {
+          const response = await crearEmprendimiento(formData);
+          console.log('Success:', response.data);
+      } catch (error) {
+          if (error.response) {
+              console.log(error);
+              console.error('Error en la respuesta del servidor:', error.response.data);
+              console.error('Código de estado:', error.response.status);
+          } else {
+              console.error('Error al hacer la solicitud:', error.message);
+          }
+      }
+  };
+    console.log(formData);
+    registrarEmprendimiento();
+  };    
 
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -68,9 +86,9 @@ const RegistroVendedorForm: React.FC = () => {
                   label="Nombre" 
                   placeholder="Nombre del emprendimiento" 
                   required 
-                  value={formData.nombre} 
+                  value={formData.nombre_emprendimiento} 
                   onChange={handleInputChange} 
-                  name="nombre" 
+                  name="nombre_emprendimiento" 
                 />
                 <FormGroup 
                   label="Contacto" 
@@ -140,8 +158,8 @@ const RegistroVendedorForm: React.FC = () => {
                 type='text'
                 label="Categoría" 
                 placeholder="Buscar categorías" 
-                value={formData.categoria} 
-                onChange={handleInputChange} 
+                // value={formData.categoria} 
+                // onChange={handleInputChange} 
                 name="categoria" 
               />
               <FormGroup 
@@ -159,9 +177,9 @@ const RegistroVendedorForm: React.FC = () => {
                 label="Conecta WhatsApp" 
                 placeholder="N° Celular" 
                 required 
-                value={formData.whatsapp} 
+                value={formData.telefono_contacto} 
                 onChange={handleInputChange} 
-                name="whatsapp" 
+                name="telefono_contacto" 
               />
               <p className="text-sm text-custom-yellow">Te enviaremos un código por WhatsApp. Solo debes ingresar tu número de teléfono personal o el de tu emprendimiento.</p>
             </div>
@@ -241,9 +259,9 @@ const RegistroVendedorForm: React.FC = () => {
                     placeholder="Nombres" 
                     size='lg'
                     required 
-                    value={formData.nombres} 
+                    value={formData.nombre} 
                     onChange={handleInputChange} 
-                    name="nombres" 
+                    name="nombre" 
                 />
                 <FormGroup 
                     type='text'
@@ -251,9 +269,9 @@ const RegistroVendedorForm: React.FC = () => {
                     size='lg'
                     placeholder="Apellidos" 
                     required 
-                    value={formData.apellidos} 
+                    value={formData.apellido} 
                     onChange={handleInputChange} 
-                    name="apellidos" 
+                    name="apellido" 
                 />
                 <FormGroup 
                     type='password'
@@ -261,9 +279,9 @@ const RegistroVendedorForm: React.FC = () => {
                     size='lg'
                     placeholder="Contraseña" 
                     required 
-                    value={formData.contraseña} 
+                    value={formData.password} 
                     onChange={handleInputChange} 
-                    name="contraseña" 
+                    name="password" 
                 />
                 <FormGroup 
                     label="Teléfono personal" 
@@ -271,9 +289,9 @@ const RegistroVendedorForm: React.FC = () => {
                     size='lg'
                     placeholder="Teléfono personal" 
                     required  
-                    value={formData.telefono} 
+                    value={formData.telefono_personal} 
                     onChange={handleInputChange} 
-                    name="telefono" 
+                    name="telefono_personal" 
                 />
             </div>
             <div className="flex flex-col items-center justify-center pt-12">
