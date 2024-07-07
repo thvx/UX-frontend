@@ -13,7 +13,7 @@ interface CheckoutProps {
     actualPage: number;
   }[];
   productsData: {
-    img: string;
+    image: string;
     title: string;
     store: string;
     price: string;
@@ -73,7 +73,7 @@ const Checkout: React.FC<CheckoutProps> = ({ stepsData, productsData, deliveryOp
                 {productsData.map((product, index) => (
                 <CardAddProductos
                     key={index}
-                    image={product.img}
+                    image={product.image}
                     title={product.title}
                     store={product.store}
                     price={product.price}

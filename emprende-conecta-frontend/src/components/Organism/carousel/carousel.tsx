@@ -5,7 +5,7 @@ interface CarouselProps {
   items: {
     image: string;
     title: string;
-    description: string;
+    price: string;
     badges: string[];
     isNew?: boolean;
     extraClasses?: string;
@@ -20,7 +20,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           <Card 
             image={item.image}
             title={item.title}
-            description={item.description}
+            price={item.price}
             badges={item.badges}
             isNew={item.isNew}
             extraClasses={item.extraClasses}

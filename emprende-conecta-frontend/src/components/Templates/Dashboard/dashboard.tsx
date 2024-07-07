@@ -12,6 +12,7 @@ interface DashboardProps {
         category: string;
     }[];
     cardsData: {
+        id: number,
         image: string
         title: string;
         description: string;

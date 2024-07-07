@@ -3,13 +3,13 @@ import React from 'react';
 interface CardProps {
   image: string;
   title: string;
-  description?: string;
+  price?: string;
   badges: string[];
   isNew?: boolean;
   extraClasses?: string;
 }
 
-const Card: React.FC<CardProps> = ({ image, title, description, badges, isNew, extraClasses }) => {
+const Card: React.FC<CardProps> = ({ image, title, price, badges, isNew, extraClasses }) => {
   return (
     <div className={`card sm:max-w-72 shadow-xl ${extraClasses}`}>
       <figure><img src={image} alt={title} /></figure>
@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({ image, title, description, badges, isNew, e
           {title}
           {isNew && <div className="badge badge-secondary">NEW</div>}
         </h2>
-        <p>{description}</p>
+        <p>{price}</p>
         <div className="card-actions justify-end">
           {badges.map((badge, index) => (
             <div key={index} className="badge badge-outline">{badge}</div>

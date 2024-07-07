@@ -34,7 +34,7 @@ function App() {
           <Route path="/perfil/negocio" element={<PerfilNegocio/>} />
           <Route path="/perfil/usuario" element={<Perfilusuario />} />
           <Route path='/favoritos' element={<ProductosFav />} />
-          <Route path='/productdetails' element={<ProductDetailsPage />} />
+          <Route path='/productdetails/:id' element={<ProductDetailsPage />} />
           <Route path='/mensaje' element={<Mensaje />} />
       </Routes>
       </BrowserRouter>

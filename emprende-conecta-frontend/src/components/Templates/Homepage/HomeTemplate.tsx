@@ -4,43 +4,34 @@ import CategoryAvatar from "../../Atoms/Actions/categoryavatar/categoryavatar";
 import Banner from "../../../assets/imagenes/Banner-medio.jpg";
 import Carousel from "../../Organism/carousel/carousel";
 import { Link } from 'react-router-dom';
+import {getProductsRequest} from '../../../api/products';
+import { useState, useEffect } from 'react';
 
 const HomeTemplate = () => {
-    const items = [
-        {
-            image: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg",
-            title: "Item 1",
-            description: "Description for Item 1",
-            badges: ["Badge 1", "Badge 2"],
-            isNew: true,
-        },
-        {
-            image: "https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg",
-            title: "Item 2",
-            description: "Description for Item 2",
-            badges: ["Badge 3", "Badge 4"],
-            isNew: true,
-        },
-        {
-            image: "https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg",
-            title: "Item 3",
-            description: "Description for Item 3",
-            badges: ["Badge 5", "Badge 6"],
-            isNew: true,
-        },
-        {
-            image: "https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg",
-            title: "Item 4",
-            description: "Description for Item 4",
-            badges: ["Badge 7", "Badge 8"],
-        },
-        {
-            image: "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg",
-            title: "Item 5",
-            description: "Description for Item 5",
-            badges: ["Badge 9", "Badge 10"],
-        },
-    ];
+    const [items, setItems] = useState<{ image: string; title: string; price: string; badges: string[]; }[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+              const response = await getProductsRequest();
+    
+              const BASE_URL = 'http://localhost:8000';
+    
+              const items = response.map((product) => ({
+                image: `${BASE_URL}${product.image}`,
+                title: product.name,
+                price: `S/. ${product.price}`,
+                badges: product.product_tags.map((tag) => tag.name),
+              }));
+              setItems(items);
+
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+    
+        fetchData();
+    }, []);
 
     return (
         <>
