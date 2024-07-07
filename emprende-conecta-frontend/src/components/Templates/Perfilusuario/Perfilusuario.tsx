@@ -58,7 +58,8 @@ const PerfilusuarioTemplate = () => {
                     </div>
                 </button>
 
-                <button className="flex justify-between px-8 w-full bg-[#34596E] items-center h-14">
+                <button className="flex justify-between px-8 w-full bg-[#34596E] items-center h-14"
+                onClick={() => { window.location.href = '/'; }}>
                     <div className="flex gap-4">
                         <div>
                             <img src={cerrarsesion} alt="" />
