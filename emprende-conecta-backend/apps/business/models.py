@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinLengthValidator, RegexValidator
 from django.core.exceptions import ValidationError
+from django.contrib.auth.hashers import make_password
 
 # Agregar registros "Emprendedor" y "Vendedor"
 class TipoPersona(models.Model):
@@ -19,7 +20,7 @@ class Persona(models.Model):
     apellido = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField(unique=True)
     email_recuperacion = models.EmailField(unique=True, null=True)
-    password = models.CharField(max_length=128, validators=[MinLengthValidator(8)], null=True)
+    password = models.CharField(max_length=128, null=True)
     telefono = models.CharField(max_length=20, blank=True, null=True,validators=[RegexValidator(regex=r'^\d{9}$', message="El teléfono debe tener 9 dígitos")])
     direccion = models.TextField(blank=True, null=True)
     tipo = models.ForeignKey(TipoPersona, on_delete=models.CASCADE)
@@ -33,6 +34,11 @@ class Persona(models.Model):
     def clean(self):
         if self.email == self.email_recuperacion:
             raise ValidationError("El email de recuperación no puede ser igual al email principal.")
+        
+    def save(self, *args, **kwargs):
+        if self.password and not self.password.startswith('pbkdf2_sha256'):
+            self.password = make_password(self.password)
+        super().save(*args, **kwargs)    
 
 class CategoriaEmprendimiento(models.Model):
     nombre = models.CharField(max_length=50)
