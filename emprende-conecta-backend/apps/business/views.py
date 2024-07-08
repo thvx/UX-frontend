@@ -35,9 +35,6 @@ class LoginView(APIView):
             return Response({"error": "Email no encontrado"}, status=status.HTTP_404_NOT_FOUND)
         
         if check_password(password, user.password):
-            # Aquí puedes implementar la lógica para generar y devolver un token de autenticación si lo necesitas
             return Response({"mensaje": "Login exitoso"}, status=status.HTTP_200_OK)
         else:
             return Response({"error": "Contraseña incorrecta"}, status=status.HTTP_400_BAD_REQUEST)
-
-# Asegúrate de importar LoginView en urls.py y añadir una ruta para manejar el login

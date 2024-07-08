@@ -36,8 +36,6 @@ const Login = () => {
             const data = await response.json();
 
             if (response.ok) {
-                // Aquí puedes guardar el token de autenticación si lo recibes
-                // localStorage.setItem('token', data.token);
                navigate('/dashboard');
             } else {
                 setError(data.error);
