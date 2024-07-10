@@ -111,7 +111,7 @@ const Pago: React.FC<PagoProps> = ({ stepsData, paymentOptions}) => {
                                 message="Su medio de pago fue verificado con con éxito." 
                                 leftButtonText="Regresar" 
                                 rightButtonText="Confirmar Tarjeta"
-                                leftButtonLink='/productosfav'
+                                leftButtonLink='/pago'
                                 rightButtonLink='/voucher' 
                             />
                     </div>
