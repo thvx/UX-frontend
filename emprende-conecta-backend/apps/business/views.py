@@ -31,10 +31,22 @@ class LoginView(APIView):
         password = request.data.get('password')
         try:
             user = Persona.objects.get(email=email)
+            if check_password(password, user.password):
+                return Response({"mensaje": "Login exitoso (Comprador)"}, status=status.HTTP_200_OK)
+            else:
+                return Response({"error": "Contraseña incorrecta (Comprador)"}, status=status.HTTP_400_BAD_REQUEST)
         except Persona.DoesNotExist:
-            return Response({"error": "Email no encontrado"}, status=status.HTTP_404_NOT_FOUND)
+            pass
         
-        if check_password(password, user.password):
-            return Response({"mensaje": "Login exitoso"}, status=status.HTTP_200_OK)
-        else:
-            return Response({"error": "Contraseña incorrecta"}, status=status.HTTP_400_BAD_REQUEST)
+        # Intentar encontrar al usuario en la tabla Emprendimiento
+        try:
+            user = Emprendimiento.objects.get(correo=email)
+            if check_password(password, user.password):
+                return Response({"mensaje": "Login exitoso (Vendedor)"}, status=status.HTTP_200_OK)
+            else:
+                return Response({"error": "Contraseña incorrecta (Vendedor)"}, status=status.HTTP_400_BAD_REQUEST)
+        except Emprendimiento.DoesNotExist:
+            pass
+        
+        # Si no se encuentra en ninguna tabla
+        return Response({"error": "Email no encontrado"}, status=status.HTTP_404_NOT_FOUND)
